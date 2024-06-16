@@ -186,6 +186,9 @@ importers:
       prettier-2:
         specifier: npm:prettier@^2
         version: prettier@2.8.8
+      resolve:
+        specifier: ^1.22.8
+        version: 1.22.8
       rimraf:
         specifier: ^5.0.7
         version: 5.0.7

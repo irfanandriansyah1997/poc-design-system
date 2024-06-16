@@ -53,7 +53,7 @@ jobs:
 
       - name: Check user input
         run: |
-          echo "Package name: ${{ github.event.inputs.package }}"
+          echo "Package name: @irfanandriansyah1997/poc-design-system"
           echo "Package version: ${{ github.event.inputs.version }}"
 
           if [[ ${{ contains(github.event.inputs.version, 'v') }} == "true" ]]
@@ -64,8 +64,9 @@ jobs:
 
       - name: Create .npmrc
         run: |
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" >> ~/.npmrc
-        echo "@irfanandriansyah1997:registry=https://npm.pkg.github.com" > ~/.npmrc
+          echo "auto-install-peers=true > ~/.npmrc"
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" > ~/.npmrc
+          echo "@irfanandriansyah1997:registry=https://npm.pkg.github.com" >> ~/.npmrc
 
       - name: Install PNPM
         run: npm install -g pnpm@^9

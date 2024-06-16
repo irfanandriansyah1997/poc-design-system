@@ -23,11 +23,12 @@ jobs:
 
       - name: Code Checkout
         uses: actions/checkout@v2
-      
+
       - name: Create .npmrc
         run: |
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" >> ~/.npmrc
-        echo "@irfanandriansyah1997:registry=https://npm.pkg.github.com" > ~/.npmrc
+          echo "auto-install-peers=true > ~/.npmrc"
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" > ~/.npmrc
+          echo "@irfanandriansyah1997:registry=https://npm.pkg.github.com" >> ~/.npmrc
 
       - name: Install PNPM
         run: npm install -g pnpm@^9
@@ -40,9 +41,6 @@ jobs:
 
       - name: Type Check
         run: yarn run type:check
-
-      - name: Unit Test
-        run: yarn run test
 
   test:
     name: Testing
@@ -61,8 +59,17 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v2
 
+      - name: Create .npmrc
+        run: |
+          echo "auto-install-peers=true > ~/.npmrc"
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" > ~/.npmrc
+          echo "@irfanandriansyah1997:registry=https://npm.pkg.github.com" >> ~/.npmrc
+
+      - name: Install PNPM
+        run: npm install -g pnpm@^9
+
       - name: Install Dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Unit Test
-        run: yarn run test --passWithNoTests
+        run: pnpm run test --passWithNoTests
