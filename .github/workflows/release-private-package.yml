@@ -110,5 +110,5 @@ jobs:
         with:
           draft: false
           generate_release_notes: true
-          token: ${{ env.GITHUB_ACCESS_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
           tag_name: "@irfanandriansyah1997/poc-design-system@${{ github.event.inputs.version }}"
