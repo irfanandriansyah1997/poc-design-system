@@ -47,6 +47,9 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
       - name: ${{ github.event.inputs.caller }}
         run: |
           echo "Caller identifier: ${{ github.event.inputs.caller }}"

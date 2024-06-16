@@ -81,11 +81,11 @@
     "url": "git@github.com:irfanandriansyah1997/poc-design-system.git"
   },
   "scripts": {
-    "build": "rimraf dist && rollup -c",
+    "build": "rimraf dist && rollup -c --bundleConfigAsCjs",
     "build:storybook": "storybook build",
     "lint": "eslint src --ext ts,tsx",
     "preview": "vite preview",
-    "dev": "ROLLUP_WATCH=true rollup -c -w",
+    "dev": "ROLLUP_WATCH=true rollup -c -w --bundleConfigAsCjs",
     "storybook": "storybook dev -p 6006",
     "test": "node etc/test/script.cjs",
     "type:check": "tsc --noEmit"

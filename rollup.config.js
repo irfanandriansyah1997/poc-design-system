@@ -2,20 +2,33 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import glob from 'glob';
+import fs from 'fs';
 import path from 'path';
-import dts from 'rollup-plugin-dts';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
+const { dts } = require('rollup-plugin-dts')
 const inputDir = 'src';
 const outputDir = 'dist';
 const isWatch = process.env.ROLLUP_WATCH === 'true';
 
 /////////////////////////////////////////////////////////////////////////////
-// Use glob to dynamically find all .ts and .tsx files
+// Recursively find all .ts and .tsx files
 /////////////////////////////////////////////////////////////////////////////
 
-const inputFiles = glob.sync(`${inputDir}/components/**/*.{ts,tsx}`);
+const getFiles = (dir, files = []) => {
+  const items = fs.readdirSync(dir);
+  items.forEach(item => {
+    const fullPath = path.join(dir, item);
+    if (fs.statSync(fullPath).isDirectory()) {
+      getFiles(fullPath, files);
+    } else if (fullPath.endsWith('.ts') || fullPath.endsWith('.tsx')) {
+      files.push(fullPath);
+    }
+  });
+  return files;
+};
+
+const inputFiles = getFiles(path.join(__dirname, inputDir, 'components'));
 const entries = inputFiles.reduce((acc, file) => {
   const entry = path.relative(inputDir, file);
   const name = entry.replace(/\.[^/.]+$/, ''); // remove file extension
