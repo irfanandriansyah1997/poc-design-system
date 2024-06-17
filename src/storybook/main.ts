@@ -1,5 +1,5 @@
+import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
-import { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
   addons: [
@@ -7,10 +7,11 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-storysource',
-    '@storybook/addon-webpack5-compiler-babel'
+    '@storybook/addon-webpack5-compiler-babel',
+    '@storybook/addon-themes'
   ],
   framework: '@storybook/react-webpack5',
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../**/*.mdx', '../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   typescript: {
     reactDocgen: 'react-docgen-typescript'
   },
@@ -25,12 +26,12 @@ const config: StorybookConfig = {
             options: {
               plugins: [
                 [
-                  "@emotion",
+                  '@emotion',
                   {
-                    "autoLabel": "never",
-                    "cssPropOptimization": true,
-                    "labelFormat": "[local]",
-                    "sourceMap": true
+                    autoLabel: 'never',
+                    cssPropOptimization: true,
+                    labelFormat: '[local]',
+                    sourceMap: true
                   }
                 ]
               ],
@@ -38,7 +39,7 @@ const config: StorybookConfig = {
                 '@babel/preset-env',
                 [
                   '@babel/preset-react',
-                  { importSource: "@emotion/react", runtime: "automatic" },
+                  { importSource: '@emotion/react', runtime: 'automatic' }
                 ],
                 '@babel/preset-typescript'
               ]
@@ -51,7 +52,7 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '@': path.resolve(__dirname, '../src')
+        '@': path.resolve(__dirname, '../')
       };
     }
 
