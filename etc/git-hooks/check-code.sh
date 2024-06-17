@@ -95,7 +95,7 @@ echo "" > ./tmp/eslint.txt
 
 ESLINT_RETVAL=0
 if [ "$JS_STAGED_FILES" != "" ]; then
-    $ESLINT_BIN -o ./tmp/eslint.txt --no-color --max-warnings 0 --ignore-path $ESLINT_IGNORE_CONFIG -c $ESLINT_CONFIG $JS_STAGED_FILES
+    $ESLINT_BIN -o ./tmp/eslint.txt --no-color --max-warnings 0 --ignore-path $ESLINT_IGNORE_CONFIG -c $ESLINT_CONFIG $JS_STAGED_FILES --no-ignore
     ESLINT_RETVAL=$?
 fi
 
