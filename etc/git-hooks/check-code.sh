@@ -9,6 +9,7 @@ FILE_PATTERN="\.(js|jsx|tsx|ts)$"
 
 
 ESLINT_CONFIG=$ROOT_DIR/.eslintrc.cjs
+ESLINT_IGNORE_CONFIG=$ROOT_DIR/.eslintignore
 ESLINT_BIN=$ROOT_DIR/node_modules/.bin/eslint
 
 TMP_STAGING=".tmp_staging"
@@ -94,7 +95,7 @@ echo "" > ./tmp/eslint.txt
 
 ESLINT_RETVAL=0
 if [ "$JS_STAGED_FILES" != "" ]; then
-    $ESLINT_BIN -o ./tmp/eslint.txt --no-color --max-warnings 0 -c $ESLINT_CONFIG $JS_STAGED_FILES
+    $ESLINT_BIN -o ./tmp/eslint.txt --no-color --max-warnings 0 --ignore-path $ESLINT_IGNORE_CONFIG -c $ESLINT_CONFIG $JS_STAGED_FILES
     ESLINT_RETVAL=$?
 fi
 
