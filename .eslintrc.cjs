@@ -21,7 +21,7 @@ module.exports = {
     '.eslintrc.cjs',
     'vite.config.ts',
     'jest.config.cjs',
-    "rollup.config.js"
+    'rollup.config.js'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

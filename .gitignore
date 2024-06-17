@@ -27,3 +27,4 @@ dist-ssr
 .cache
 coverage
 .npmrc
+tmp

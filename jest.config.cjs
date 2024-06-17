@@ -12,7 +12,7 @@ module.exports = {
   resetMocks: false,
   roots: ["<rootDir>/src"],
   setupFiles: ["jest-localstorage-mock"],
-  setupFilesAfterEnv: ["<rootDir>/src/setupTest.ts"],
+  setupFilesAfterEnv: ["<rootDir>/src/setup-test.ts"],
   testEnvironment: "jest-environment-jsdom",
   testMatch: ["<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}"],
   transform: {
