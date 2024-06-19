@@ -2,4 +2,4 @@ dist
 .eslintrc.cjs
 vite.config.ts
 jest.config.cjs
-rollup.config.js
+rollup.config.cjs

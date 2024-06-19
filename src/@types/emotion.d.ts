@@ -13,7 +13,22 @@ declare module '@emotion/react' {
     fontSize: number | string;
     letterSpacing: string;
     lineHeight: string;
-    weight: 700 | 600 | 500 | 400;
+  }
+
+  export interface FontWeight {
+    regular: number;
+    strong: number;
+  }
+
+  export interface TypographyModifier {
+    bodyBase: CustomTypography;
+    bodySM: CustomTypography;
+    bodyXS: CustomTypography;
+    headingLG: CustomTypography;
+    headingMD: CustomTypography;
+    headingSM: CustomTypography;
+    headingXL: CustomTypography;
+    headingXXL: CustomTypography;
   }
 
   /////////////////////////////////////////////////////////////////////////////
@@ -28,6 +43,7 @@ declare module '@emotion/react' {
     | 300
     | 400
     | 500
+    | 550
     | 600
     | 700
     | 800
@@ -37,14 +53,13 @@ declare module '@emotion/react' {
     [K in Increments as `${T}${K}`]?: string;
   };
 
-  export type MainColor = GenericColor<'MAIN'>;
-  export type SecondaryColor = GenericColor<'SECONDARY'>;
+  export type FitLightColor = GenericColor<'FITLIGHT'>;
+  export type FitSkyColor = GenericColor<'FITSKY'>;
   export type BlueColor = GenericColor<'BLUE'>;
+  export type GreenColor = GenericColor<'GREEN'>;
+  export type RedColor = GenericColor<'RED'>;
+  export type OrangeColor = GenericColor<'ORANGE'>;
   export type GrayColor = GenericColor<'GRAY'>;
-  export type SuccessColor = GenericColor<'SUCCESS'>;
-  export type InfoColor = GenericColor<'INFO'>;
-  export type WarningColor = GenericColor<'WARNING'>;
-  export type DangerColor = GenericColor<'DANGER'>;
 
   export interface CommonColor {
     BLACK?: string;
@@ -67,45 +82,41 @@ declare module '@emotion/react' {
   /////////////////////////////////////////////////////////////////////////////
   // Transition Types
   /////////////////////////////////////////////////////////////////////////////
+
   export interface Transition {
     duration: string;
     timingFunction: string;
   }
 
+  /////////////////////////////////////////////////////////////////////////////
+  // Elevation Types (Box Shadow)
+  /////////////////////////////////////////////////////////////////////////////
+
+  export interface Elevation {
+    lg: string;
+    md: string;
+    sm: string;
+    xl: string;
+  }
+
   export interface Theme {
-    color: MainColor &
-      SecondaryColor &
+    color: FitLightColor &
+      FitSkyColor &
       BlueColor &
+      GreenColor &
+      RedColor &
+      OrangeColor &
       GrayColor &
-      SuccessColor &
-      InfoColor &
-      WarningColor &
-      DangerColor &
-      CommonColor;
+      GenericColor;
     components: {
       // TODO: for theming custom components
     };
+    elevation: Elevation;
     fontFamily: FontFamily;
+    fontWeight: FontWeight;
     spacing: Spacing;
     transition: Transition;
-    typography: {
-      body1: CustomTypography;
-      body2: CustomTypography;
-      body3: CustomTypography;
-      caption: CustomTypography;
-      display1: CustomTypography;
-      display2: CustomTypography;
-      display3: CustomTypography;
-      heading1: CustomTypography;
-      heading2: CustomTypography;
-      heading3: CustomTypography;
-      heading4: CustomTypography;
-      heading5: CustomTypography;
-      heading6: CustomTypography;
-      ui1: CustomTypography;
-      ui2: CustomTypography;
-      ui3: CustomTypography;
-    };
+    typography: TypographyModifier;
   }
 }
 
