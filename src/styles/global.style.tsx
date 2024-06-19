@@ -36,7 +36,6 @@ const styReset = css`
   samp,
   small,
   strike,
-  strong,
   sub,
   sup,
   tt,

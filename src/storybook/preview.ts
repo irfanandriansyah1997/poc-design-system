@@ -2,7 +2,10 @@ import { ThemeProvider } from '@emotion/react';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 
-import { FITHUB_DEFAULT_THEME } from '@/constants/theme';
+import {
+  FITHUB_DEFAULT_DASHBOARD_THEME,
+  FITHUB_DEFAULT_LANDING_PAGE_THEME
+} from '@/constants/theme';
 
 import GlobalStyles from '@/styles/global.style';
 
@@ -12,8 +15,8 @@ const preview: Preview = {
       GlobalStyles,
       Provider: ThemeProvider,
       themes: {
-        dark: FITHUB_DEFAULT_THEME,
-        light: FITHUB_DEFAULT_THEME
+        Dashboard: FITHUB_DEFAULT_DASHBOARD_THEME,
+        'Landing Page': FITHUB_DEFAULT_LANDING_PAGE_THEME
       }
     })
   ],

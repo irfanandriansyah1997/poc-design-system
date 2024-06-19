@@ -1,3 +1,4 @@
+/* eslint-disable */
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
@@ -40,7 +41,7 @@ const entries = inputFiles.reduce((acc, file) => {
   // Ignore files you want to exclude
   if (
     !entry.includes('.test.') &&
-    !entry.includes('.stories.') &&
+    !entry.includes('stories') &&
     !entry.includes('.d.') &&
     !entry.includes('storybook') &&
     !entry.includes('setup-test')
