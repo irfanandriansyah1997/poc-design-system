@@ -9,7 +9,7 @@ on:
       - synchronize
 
 jobs:
-  lint:
+  "Check PR Title":
     runs-on: ubuntu-latest
     permissions:
       statuses: write
