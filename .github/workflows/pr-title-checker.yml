@@ -1,4 +1,4 @@
-name: Check PR title
+name: CI PR title
 
 on:
   pull_request_target:
@@ -9,7 +9,8 @@ on:
       - synchronize
 
 jobs:
-  "Check PR Title":
+  check-title:
+    name: Check PR Title
     runs-on: ubuntu-latest
     permissions:
       statuses: write

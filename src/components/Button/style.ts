@@ -496,7 +496,14 @@ export const styButton = (props: Theme) => {
     }
 
     &[data-only-icon='true'] {
-      padding: 0;
+      &[data-icon-position='post'],
+      &[data-icon-position='pre'] {
+        &[data-size='sm'],
+        &[data-size='md'],
+        &[data-size='lg'] {
+          padding: 0;
+        }
+      }
 
       .button-container {
         justify-content: center;
