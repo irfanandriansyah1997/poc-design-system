@@ -1,3 +1,5 @@
+import type { Color, Elevation } from '@emotion/react';
+
 type CXArgs =
   | string
   | { [key: string]: boolean | void | null }
@@ -119,3 +121,32 @@ export function hexToRgba(hex: string, alpha = 1) {
   // Return the RGBA color code
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
+
+/**
+ * Retrieves a color value from the theme based on the provided arguments.
+ *
+ * @param {GetField<Theme, 'color'>} color - The color field from the theme.
+ * @param {keyof GetField<Theme, 'color'>} [args] - Optional key to specify which color value to retrieve.
+ * @returns {string} The color value corresponding to the provided key, or 'transparent' if the key is not provided or not found.
+ */
+export const getColorEmotion = (color: Color, args?: keyof Color): string => {
+  if (args) return color[args] || 'transparent';
+
+  return 'transparent';
+};
+
+/**
+ * Retrieves a box-shadow value from the elevation settings based on the provided arguments.
+ *
+ * @param {Elevation} elevation - The elevation settings containing box-shadow values.
+ * @param {keyof Elevation} [args] - Optional key to specify which elevation value to retrieve.
+ * @returns {string} The box-shadow value corresponding to the provided key, or 'initial' if the key is not provided or not found.
+ */
+export const getBoxShadowEmotion = (
+  elevation: Elevation,
+  args?: keyof Elevation
+): string => {
+  if (args) return elevation[args] || 'initial';
+
+  return 'initial';
+};

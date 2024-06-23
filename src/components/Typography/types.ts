@@ -21,7 +21,7 @@ export type TypographyElementType =
 /**
  * Defines the types of typography modifiers available in the theme.
  */
-export type TypographyModifierType = keyof Theme['typography'];
+export type TypographyModifierType = keyof GetField<Theme, 'typography'>;
 
 interface BaseTypographyProps {
   className: string;

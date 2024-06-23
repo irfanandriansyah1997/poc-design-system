@@ -1,4 +1,4 @@
-import type { HTMLAttributes, PropsWithChildren } from 'react';
+import type { forwardRef, HTMLAttributes, PropsWithChildren } from 'react';
 
 import type { Property } from 'csstype';
 
@@ -39,7 +39,8 @@ interface BaseFlexProps {
 export type FlexProps = Omit<HTMLSectionProps, keyof BaseFlexProps> &
   Partial<BaseFlexProps>;
 
-export interface FlexFnType {
-  (props: PropsWithChildren<FlexProps>): JSX.Element;
+export type FlexFnType = ReturnType<
+  typeof forwardRef<HTMLElement, PropsWithChildren<FlexProps>>
+> & {
   Item: FlexItemFnType;
-}
+};
