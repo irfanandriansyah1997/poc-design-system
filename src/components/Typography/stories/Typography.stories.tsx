@@ -10,6 +10,7 @@ import {
   COMMONT_TYPOGRAPHY_ARGS,
   HEADING_TYPOGRAPHY_MODIFIER_KIND
 } from './constant';
+import Template from './template.mdx';
 import TypographySectionExample from './TypographyTemplate';
 
 const SAMPLE_TEXT = 'Gym for Everyone';
@@ -25,6 +26,7 @@ const meta = {
   },
   component: Typography,
   parameters: {
+    docs: { page: Template },
     layout: 'centered'
   },
   tags: ['autodocs'],

@@ -10,28 +10,24 @@ export const COMMONT_TYPOGRAPHY_ARGS: Partial<
   ArgTypes<TypographyProps<HTMLElement>>
 > = {
   children: {
-    control: 'text',
-    name: 'Text Content'
+    control: 'text'
   },
   className: {
     control: 'text',
-    description: 'The class name for the typography component.',
-    name: 'Class Name'
+    description: 'The class name for the typography component.'
   },
   color: {
     control: 'color',
-    description: 'The color of the text.',
-    name: 'Color Text'
+    description: 'The color of the text.'
   },
   ellipsis: {
     control: 'boolean',
-    description: 'Whether to apply ellipsis to the text.',
-    name: 'Ellipsis'
+    description: 'Whether to apply ellipsis to the text.'
   },
   fontFamily: {
     control: 'select',
     description: 'The font family will be used for the text.',
-    name: 'Font Family',
+
     options: ['primary', 'secondary'],
     table: {
       defaultValue: { summary: 'primary' }
@@ -40,7 +36,7 @@ export const COMMONT_TYPOGRAPHY_ARGS: Partial<
   fontWeight: {
     control: 'select',
     description: 'Whether to apply font weight bold / normal',
-    name: 'Font Weight',
+
     options: ['regular', 'strong'],
     table: {
       defaultValue: { summary: 'regular' }
@@ -48,19 +44,17 @@ export const COMMONT_TYPOGRAPHY_ARGS: Partial<
   },
   italic: {
     control: 'boolean',
-    description: 'Toggle for whether to implement italic or not?',
-    name: 'Italic'
+    description: 'Toggle for whether to implement italic or not?'
   },
   margin: {
     control: 'text',
-    description: 'The margin around the typography component.',
-    name: 'Margin'
+    description: 'The margin around the typography component.'
   },
   modifier: {
     control: 'select',
     description:
       'The typography modifier to apply it will be reflect with the font size and styling the text section',
-    name: 'Modifier Styling',
+
     options: [
       'bodyBase',
       'bodySM',
@@ -77,7 +71,7 @@ export const COMMONT_TYPOGRAPHY_ARGS: Partial<
   },
   textAlign: {
     control: 'select',
-    name: 'Text Align',
+
     options: ['center', 'left', 'right'],
     table: {
       defaultValue: { summary: 'left' }
@@ -85,7 +79,7 @@ export const COMMONT_TYPOGRAPHY_ARGS: Partial<
   },
   textDecoration: {
     control: 'select',
-    name: 'Text Decoration',
+
     options: [
       'auto',
       'blink',

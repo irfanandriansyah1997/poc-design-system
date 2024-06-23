@@ -210,6 +210,7 @@ const DEFAULT_COLOR: GetField<Theme, 'color'> = {
 /////////////////////////////////////////////////////////////////////////////
 
 export const DEFAULT_ELEVATION: Elevation = {
+  element: `0px 1px 2px 1px ${hexToRgba(GRAY900, 0.04)}`,
   lg: `0px 10px 32px 0px ${hexToRgba(GRAY900, 0.1)}, 0px 1px 3px 0px ${hexToRgba(GRAY900, 0.08)}`,
   md: `0px 2px 6px 0px ${hexToRgba(GRAY900, 0.06)}`,
   sm: `0px 0px 6px 0px ${hexToRgba(GRAY900, 0.06)}`,

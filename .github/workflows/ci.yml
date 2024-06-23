@@ -40,7 +40,7 @@ jobs:
         run: pnpm run lint
 
       - name: Type Check
-        run: yarn run type:check
+        run: pnpm run type:check
 
   test:
     name: Testing

@@ -93,21 +93,25 @@ declare module '@emotion/react' {
   /////////////////////////////////////////////////////////////////////////////
 
   export interface Elevation {
+    element: string;
     lg: string;
     md: string;
     sm: string;
     xl: string;
   }
 
+  interface Color
+    extends FitLightColor,
+      FitSkyColor,
+      BlueColor,
+      GreenColor,
+      RedColor,
+      OrangeColor,
+      GrayColor,
+      CommonColor {}
+
   export interface Theme {
-    color: FitLightColor &
-      FitSkyColor &
-      BlueColor &
-      GreenColor &
-      RedColor &
-      OrangeColor &
-      GrayColor &
-      GenericColor;
+    color: Color;
     components: {
       // TODO: for theming custom components
     };
@@ -118,11 +122,4 @@ declare module '@emotion/react' {
     transition: Transition;
     typography: TypographyModifier;
   }
-}
-
-// You are also able to use a 3rd party theme this way:
-import type { LibTheme } from 'some-lib';
-
-declare module '@emotion/react' {
-  export interface Theme extends LibTheme {}
 }

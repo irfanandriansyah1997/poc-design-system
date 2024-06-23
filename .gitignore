@@ -29,3 +29,4 @@ coverage
 .npmrc
 tmp
 storybook-static
+.tmp_staging

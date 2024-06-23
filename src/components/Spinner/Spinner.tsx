@@ -11,6 +11,8 @@ interface SpinnerProps {
    */
   center?: boolean;
 
+  className?: string;
+
   /**
    * Whether the spinner should have a shadow.
    */
@@ -40,11 +42,12 @@ interface SpinnerProps {
 const Spinner = (props: SpinnerProps): JSX.Element => {
   const {
     center = false,
+    className,
     shadow = false,
-    size,
+    size = 16,
     spinnerColor = GRAY400,
-    spinnerWidth = 5,
-    withContainer = true
+    spinnerWidth = 2,
+    withContainer = false
   } = props;
 
   const style = useMemo((): Record<string, CSSProperties> => {
@@ -67,6 +70,7 @@ const Spinner = (props: SpinnerProps): JSX.Element => {
   return (
     <section
       aria-label="loading container"
+      className={className}
       css={stySpinner}
       style={style.container}
       data-position-center={center}

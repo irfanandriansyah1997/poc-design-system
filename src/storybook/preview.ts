@@ -1,6 +1,7 @@
-import { ThemeProvider } from '@emotion/react';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
+
+import StorybookProvider from '@/context/StorybookPreview';
 
 import {
   FITHUB_DEFAULT_DASHBOARD_THEME,
@@ -13,7 +14,7 @@ const preview: Preview = {
   decorators: [
     withThemeFromJSXProvider({
       GlobalStyles,
-      Provider: ThemeProvider,
+      Provider: StorybookProvider,
       themes: {
         Dashboard: FITHUB_DEFAULT_DASHBOARD_THEME,
         'Landing Page': FITHUB_DEFAULT_LANDING_PAGE_THEME
@@ -26,6 +27,10 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    docs: { toc: true },
+    sidebar: {
+      showRoots: false // Set to true if you want to show root level
     }
   },
   tags: ['autodocs']

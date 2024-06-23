@@ -7,6 +7,7 @@ import { keyframeRotation } from '@/styles/animation.style';
 
 export const stySpinner = (props: Theme) => {
   const { elevation } = props;
+
   return css`
     display: flex;
     align-items: center;
@@ -23,9 +24,8 @@ export const stySpinner = (props: Theme) => {
 
     &[data-position-center='true'] {
       position: absolute;
-      top: 50%;
       left: 50%;
-      transform: translate(-50%);
+      transform: translateX(-50%);
     }
 
     .spinner {
