@@ -29,10 +29,31 @@ type ChipSuffixElementType =
   | ChipSuffixBadgeElementType;
 
 interface ChipProps extends HTMLSectionProps {
+  /**
+   * Whether the chip is checked.
+   * @default false
+   */
   checked?: boolean;
+
+  /**
+   * Whether the chip is disabled.
+   * @default false
+   */
   disabled?: boolean;
+
+  /**
+   * Icon to be displayed as the prefix.
+   */
   preffixIcon?: FithubIconType;
+
+  /**
+   * Element to be displayed as the suffix. It can be either an icon or a badge.
+   */
   suffixElement?: ChipSuffixElementType;
+
+  /**
+   * Text to be displayed inside the chip.
+   */
   text: string;
 }
 
