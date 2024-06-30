@@ -18,7 +18,7 @@ interface CardPreviewProps {
 const CardPreview = (props: PropsWithChildren<CardPreviewProps>) => {
   const { children, label, sourceCode } = props;
   const {
-    color: { GRAY500, GRAY700 }
+    color: { FITSKY500, GRAY500 }
   } = useTheme();
   const { open } = Toaster.useToaster();
 
@@ -28,7 +28,7 @@ const CardPreview = (props: PropsWithChildren<CardPreviewProps>) => {
       .then(() => {
         open({
           autoClose: 1000,
-          icon: 'checkmark-circle-fill',
+          icon: 'check-circle',
           iconColor: 'GREEN500',
           message: 'Success copied source code!',
           theme: 'light'
@@ -57,8 +57,8 @@ const CardPreview = (props: PropsWithChildren<CardPreviewProps>) => {
 
             <Icon
               size={20}
-              icon="copy"
-              color={GRAY700}
+              icon="copy-content"
+              color={FITSKY500}
               className="card-preview__icon-btn"
             />
           </Flex.Item>

@@ -21,7 +21,7 @@ const meta = {
     children: SAMPLE_TEXT,
     color: GRAY700,
     fontWeight: 'strong',
-    modifier: 'headingMD',
+    modifier: 'text_heading_md',
     tag: 'p'
   },
   component: Typography,

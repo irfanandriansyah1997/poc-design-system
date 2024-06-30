@@ -1,8 +1,6 @@
 import type { Theme } from '@emotion/react';
 import { css, keyframes } from '@emotion/react';
 
-import { GRAY900, WHITE } from '@/constants/theme';
-
 const transitionFadeInUp = keyframes`
   from {
     opacity: 0;
@@ -29,20 +27,16 @@ const transitionFadeOutScale = keyframes`
 
 export const styToaster = (props: Theme) => {
   const {
+    color: { GRAY900, WHITE },
     elevation: { lg }
   } = props;
 
   return css`
     position: fixed;
     top: 40px;
-    box-shadow: ${lg};
-    border-radius: 4px;
-    padding: 10px 16px;
-    min-height: 40px;
-    width: fit-content;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 100;
+    left: 0;
+    width: 100%;
 
     &[data-animate='show'] {
       animation-name: ${transitionFadeInUp};
@@ -63,6 +57,16 @@ export const styToaster = (props: Theme) => {
     }
 
     .toaster {
+      &__container {
+        background-color: ${WHITE};
+        box-shadow: ${lg};
+        border-radius: 4px;
+        padding: 10px 16px;
+        min-height: 40px;
+        width: fit-content;
+        margin: auto;
+      }
+
       &__button {
         cursor: pointer;
         background: transparent;

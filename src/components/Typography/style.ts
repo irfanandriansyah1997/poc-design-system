@@ -6,14 +6,14 @@ export const styTypography = (props: Theme) => {
     fontFamily: { primary, secondary },
     fontWeight,
     typography: {
-      bodyBase,
-      bodySM,
-      bodyXS,
-      headingLG,
-      headingMD,
-      headingSM,
-      headingXL,
-      headingXXL
+      text_body_base,
+      text_body_sm,
+      text_body_xs,
+      text_heading_lg,
+      text_heading_md,
+      text_heading_sm,
+      text_heading_xl,
+      text_heading_xxl
     }
   } = props;
 
@@ -51,52 +51,52 @@ export const styTypography = (props: Theme) => {
 
     // Modifier Typography
 
-    &[data-modifier='bodyBase'] {
-      font-size: ${bodyBase.fontSize};
-      line-height: ${bodyBase.lineHeight};
-      letter-spacing: ${bodyBase.letterSpacing};
+    &[data-modifier='text_body_base'] {
+      font-size: ${text_body_base.fontSize};
+      line-height: ${text_body_base.lineHeight};
+      letter-spacing: ${text_body_base.letterSpacing};
     }
 
-    &[data-modifier='bodySM'] {
-      font-size: ${bodySM.fontSize};
-      line-height: ${bodySM.lineHeight};
-      letter-spacing: ${bodySM.letterSpacing};
+    &[data-modifier='text_body_sm'] {
+      font-size: ${text_body_sm.fontSize};
+      line-height: ${text_body_sm.lineHeight};
+      letter-spacing: ${text_body_sm.letterSpacing};
     }
 
-    &[data-modifier='bodyXS'] {
-      font-size: ${bodyXS.fontSize};
-      line-height: ${bodyXS.lineHeight};
-      letter-spacing: ${bodyXS.letterSpacing};
+    &[data-modifier='text_body_xs'] {
+      font-size: ${text_body_xs.fontSize};
+      line-height: ${text_body_xs.lineHeight};
+      letter-spacing: ${text_body_xs.letterSpacing};
     }
 
-    &[data-modifier='headingLG'] {
-      font-size: ${headingLG.fontSize};
-      line-height: ${headingLG.lineHeight};
-      letter-spacing: ${headingLG.letterSpacing};
+    &[data-modifier='text_heading_lg'] {
+      font-size: ${text_heading_lg.fontSize};
+      line-height: ${text_heading_lg.lineHeight};
+      letter-spacing: ${text_heading_lg.letterSpacing};
     }
 
-    &[data-modifier='headingMD'] {
-      font-size: ${headingMD.fontSize};
-      line-height: ${headingMD.lineHeight};
-      letter-spacing: ${headingMD.letterSpacing};
+    &[data-modifier='text_heading_md'] {
+      font-size: ${text_heading_md.fontSize};
+      line-height: ${text_heading_md.lineHeight};
+      letter-spacing: ${text_heading_md.letterSpacing};
     }
 
-    &[data-modifier='headingSM'] {
-      font-size: ${headingSM.fontSize};
-      line-height: ${headingSM.lineHeight};
-      letter-spacing: ${headingSM.letterSpacing};
+    &[data-modifier='text_heading_sm'] {
+      font-size: ${text_heading_sm.fontSize};
+      line-height: ${text_heading_sm.lineHeight};
+      letter-spacing: ${text_heading_sm.letterSpacing};
     }
 
-    &[data-modifier='headingXL'] {
-      font-size: ${headingXL.fontSize};
-      line-height: ${headingXL.lineHeight};
-      letter-spacing: ${headingXL.letterSpacing};
+    &[data-modifier='text_heading_xl'] {
+      font-size: ${text_heading_xl.fontSize};
+      line-height: ${text_heading_xl.lineHeight};
+      letter-spacing: ${text_heading_xl.letterSpacing};
     }
 
-    &[data-modifier='headingXXL'] {
-      font-size: ${headingXXL.fontSize};
-      line-height: ${headingXXL.lineHeight};
-      letter-spacing: ${headingXXL.letterSpacing};
+    &[data-modifier='text_heading_xxl'] {
+      font-size: ${text_heading_xxl.fontSize};
+      line-height: ${text_heading_xxl.lineHeight};
+      letter-spacing: ${text_heading_xxl.letterSpacing};
     }
   `;
 };

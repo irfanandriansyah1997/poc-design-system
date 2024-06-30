@@ -17,7 +17,7 @@ const Typography = <T extends Element>(
     fontWeight = 'regular',
     italic = false,
     margin,
-    modifier = 'bodyBase',
+    modifier = 'text_body_base',
     tag = 'p',
     textAlign = 'left',
     textDecoration = 'none',

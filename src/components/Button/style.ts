@@ -46,8 +46,8 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
           textColor: 'WHITE'
         },
         defaultState: {
-          backgroundColor: 'FITSKY550',
-          borderColor: 'FITSKY550',
+          backgroundColor: 'FITSKY500',
+          borderColor: 'FITSKY500',
           iconColor: 'WHITE',
           textColor: 'WHITE'
         },
@@ -58,8 +58,8 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
           textColor: 'GRAY200'
         },
         hover: {
-          backgroundColor: 'FITSKY500',
-          borderColor: 'FITSKY500',
+          backgroundColor: 'FITSKY400',
+          borderColor: 'FITSKY400',
           iconColor: 'WHITE',
           textColor: 'WHITE'
         },
@@ -148,11 +148,13 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
     modifier: [
       {
         active: {
+          backgroundColor: 'WHITE',
           borderColor: 'FITSKY600',
           iconColor: 'FITSKY600',
           textColor: 'FITSKY600'
         },
         defaultState: {
+          backgroundColor: 'WHITE',
           borderColor: 'GRAY100',
           iconColor: 'GRAY500',
           textColor: 'GRAY500'
@@ -164,12 +166,14 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
           textColor: 'GRAY200'
         },
         hover: {
-          borderColor: 'FITSKY500',
+          backgroundColor: 'WHITE',
+          borderColor: 'FITSKY400',
           iconColor: 'FITSKY500',
           textColor: 'FITSKY500'
         },
         key: 'primary',
         loading: {
+          backgroundColor: 'WHITE',
           borderColor: 'FITSKY300',
           iconColor: 'FITSKY500',
           textColor: 'FITSKY500'
@@ -177,11 +181,13 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
       },
       {
         active: {
+          backgroundColor: 'WHITE',
           borderColor: 'RED600',
           iconColor: 'RED600',
           textColor: 'RED600'
         },
         defaultState: {
+          backgroundColor: 'WHITE',
           borderColor: 'RED500',
           iconColor: 'RED500',
           textColor: 'RED500'
@@ -193,12 +199,14 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
           textColor: 'GRAY200'
         },
         hover: {
+          backgroundColor: 'WHITE',
           borderColor: 'RED400',
           iconColor: 'RED400',
           textColor: 'RED400'
         },
         key: 'danger',
         loading: {
+          backgroundColor: 'WHITE',
           borderColor: 'RED300',
           iconColor: 'RED500',
           textColor: 'RED500'
@@ -215,11 +223,13 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
     modifier: [
       {
         active: {
+          backgroundColor: 'WHITE',
           borderColor: 'FITSKY600',
           iconColor: 'FITSKY600',
           textColor: 'FITSKY600'
         },
         defaultState: {
+          backgroundColor: 'WHITE',
           borderColor: 'GRAY100',
           iconColor: 'GRAY500',
           textColor: 'GRAY500'
@@ -231,12 +241,14 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
           textColor: 'GRAY200'
         },
         hover: {
-          borderColor: 'FITSKY500',
+          backgroundColor: 'WHITE',
+          borderColor: 'FITSKY400',
           iconColor: 'FITSKY500',
           textColor: 'FITSKY500'
         },
         key: 'primary',
         loading: {
+          backgroundColor: 'WHITE',
           borderColor: 'FITSKY300',
           iconColor: 'FITSKY500',
           textColor: 'FITSKY500'
@@ -244,11 +256,13 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
       },
       {
         active: {
+          backgroundColor: 'WHITE',
           borderColor: 'RED600',
           iconColor: 'RED600',
           textColor: 'RED600'
         },
         defaultState: {
+          backgroundColor: 'WHITE',
           borderColor: 'RED500',
           iconColor: 'RED500',
           textColor: 'RED500'
@@ -260,12 +274,14 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
           textColor: 'GRAY200'
         },
         hover: {
+          backgroundColor: 'WHITE',
           borderColor: 'RED400',
           iconColor: 'RED400',
           textColor: 'RED400'
         },
         key: 'danger',
         loading: {
+          backgroundColor: 'WHITE',
           borderColor: 'RED300',
           iconColor: 'RED500',
           textColor: 'RED500'
@@ -284,16 +300,16 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
           textColor: 'FITSKY600'
         },
         defaultState: {
-          iconColor: 'FITSKY550',
-          textColor: 'FITSKY550'
+          iconColor: 'FITSKY500',
+          textColor: 'FITSKY500'
         },
         disabled: {
           iconColor: 'GRAY200',
           textColor: 'GRAY200'
         },
         hover: {
-          iconColor: 'FITSKY500',
-          textColor: 'FITSKY500'
+          iconColor: 'FITSKY400',
+          textColor: 'FITSKY400'
         },
         key: 'primary',
         loading: {
@@ -393,6 +409,7 @@ export const styButton = (props: Theme) => {
   const {
     color,
     elevation,
+    radius,
     transition: { duration, timingFunction }
   } = props;
 
@@ -400,7 +417,6 @@ export const styButton = (props: Theme) => {
     position: relative;
     border: 1px solid transparent;
     background: transparent;
-    border-radius: 4px;
     cursor: pointer;
 
     transition: all ${duration} ${timingFunction};
@@ -415,6 +431,7 @@ export const styButton = (props: Theme) => {
     .button-container {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       opacity: 1;
       transition: all ${duration} ${timingFunction};
@@ -423,6 +440,10 @@ export const styButton = (props: Theme) => {
       .button-icon {
         transition: all ${duration} ${timingFunction};
       }
+    }
+
+    &[data-block='true'] {
+      width: 100%;
     }
 
     &[data-loading='true'] {
@@ -436,6 +457,7 @@ export const styButton = (props: Theme) => {
     &[data-size='sm'] {
       padding: 0 16px;
       height: 32px;
+      border-radius: ${radius.sm}px;
 
       &[data-only-icon='true'] {
         width: 32px;
@@ -445,6 +467,7 @@ export const styButton = (props: Theme) => {
     &[data-size='md'] {
       padding: 0 24px;
       height: 44px;
+      border-radius: ${radius.md}px;
 
       &[data-only-icon='true'] {
         width: 44px;
@@ -454,6 +477,7 @@ export const styButton = (props: Theme) => {
     &[data-size='lg'] {
       padding: 0 36px;
       height: 60px;
+      border-radius: ${radius.lg}px;
 
       &[data-only-icon='true'] {
         width: 60px;
