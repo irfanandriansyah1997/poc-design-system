@@ -124,7 +124,7 @@ declare module '@emotion/react' {
   // Fithub Theme
   /////////////////////////////////////////////////////////////////////////////
 
-  export type Theme = FithubTheme;
+  export interface Theme extends FithubTheme {}
 
   export interface FithubTheme {
     color: Color;
