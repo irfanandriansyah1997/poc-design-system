@@ -13,6 +13,7 @@ export const styCard = (props: Theme) => {
   const {
     color: { WHITE },
     elevation,
+    radius,
     transition: { duration, timingFunction }
   } = props;
 
@@ -23,7 +24,7 @@ export const styCard = (props: Theme) => {
     transition: all ${duration} ${timingFunction};
 
     &[data-rounded='true'] {
-      border-radius: 8px;
+      border-radius: ${radius.md};
     }
 
     &[data-with-background='true'] {

@@ -27,7 +27,7 @@ const meta = {
     layout: 'centered'
   },
   tags: ['autodocs'],
-  title: 'Atomic/Icon'
+  title: 'General/Icon'
 } satisfies Meta<typeof Icon>;
 
 export default meta;

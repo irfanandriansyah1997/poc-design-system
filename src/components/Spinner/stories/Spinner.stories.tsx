@@ -21,7 +21,7 @@ const meta = {
     docs: { page: Template },
     layout: 'centered'
   },
-  title: 'Atomic/Spinner'
+  title: 'Feedback/Spinner'
 } satisfies Meta<typeof Spinner>;
 
 export default meta;

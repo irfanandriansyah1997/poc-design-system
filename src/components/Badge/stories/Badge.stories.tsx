@@ -19,7 +19,7 @@ const meta = {
   parameters: {
     layout: 'centered'
   },
-  title: 'Atomic/Badge'
+  title: 'Data Display/Badge'
 } satisfies Meta<typeof Badge>;
 
 export default meta;

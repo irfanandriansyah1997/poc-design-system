@@ -115,9 +115,11 @@ declare module '@emotion/react' {
   // Border Radius Types
   /////////////////////////////////////////////////////////////////////////////
   export interface Radius {
-    lg: number;
-    md: number;
-    sm: number;
+    circle: string;
+    lg: string;
+    md: string;
+    sm: string;
+    xl: string;
   }
 
   /////////////////////////////////////////////////////////////////////////////

@@ -19,7 +19,7 @@ const meta = {
   parameters: {
     layout: 'centered'
   },
-  title: 'Atomic/Divider'
+  title: 'Layout/Divider'
 } satisfies Meta<typeof Divider>;
 
 export default meta;
