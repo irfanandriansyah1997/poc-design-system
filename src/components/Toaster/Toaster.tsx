@@ -82,40 +82,44 @@ const Toaster = forwardRef<ToasterRefType, ToasterProps>((props, ref) => {
   }, []);
 
   return (
-    <Flex
+    <section
       ref={node}
-      css={styToaster}
       className="animate"
-      gap={8}
-      data-theme={theme}
-      alignItems="center"
+      css={styToaster}
       onAnimationEnd={handleOnAnimationEnd}
     >
-      {icon && (
+      <Flex
+        className="toaster__container"
+        gap={8}
+        data-theme={theme}
+        alignItems="center"
+      >
+        {icon && (
+          <Flex.Item>
+            <Icon icon={icon} color={color[iconColor]} size={20} />
+          </Flex.Item>
+        )}
         <Flex.Item>
-          <Icon icon={icon} color={color[iconColor]} size={20} />
+          <Typography tag="p" modifier="text_body_base">
+            {message}
+          </Typography>
         </Flex.Item>
-      )}
-      <Flex.Item>
-        <Typography tag="p" modifier="bodyBase">
-          {message}
-        </Typography>
-      </Flex.Item>
-      {ctaLabel && (
-        <Flex.Item>
-          <button className="toaster__button" onClick={handleOnClickCTA}>
-            <Typography
-              tag="span"
-              fontWeight="strong"
-              modifier="bodyBase"
-              color={color.BLUE500}
-            >
-              {ctaLabel}
-            </Typography>
-          </button>
-        </Flex.Item>
-      )}
-    </Flex>
+        {ctaLabel && (
+          <Flex.Item>
+            <button className="toaster__button" onClick={handleOnClickCTA}>
+              <Typography
+                tag="span"
+                fontWeight="strong"
+                modifier="text_body_base"
+                color={color.BLUE500}
+              >
+                {ctaLabel}
+              </Typography>
+            </button>
+          </Flex.Item>
+        )}
+      </Flex>
+    </section>
   );
 });
 

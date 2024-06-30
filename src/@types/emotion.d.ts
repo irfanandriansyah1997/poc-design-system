@@ -4,6 +4,7 @@ declare module '@emotion/react' {
   /////////////////////////////////////////////////////////////////////////////
   // Typography Generic
   /////////////////////////////////////////////////////////////////////////////
+
   export interface FontFamily {
     primary: string;
     secondary?: string;
@@ -21,14 +22,14 @@ declare module '@emotion/react' {
   }
 
   export interface TypographyModifier {
-    bodyBase: CustomTypography;
-    bodySM: CustomTypography;
-    bodyXS: CustomTypography;
-    headingLG: CustomTypography;
-    headingMD: CustomTypography;
-    headingSM: CustomTypography;
-    headingXL: CustomTypography;
-    headingXXL: CustomTypography;
+    text_body_base: CustomTypography;
+    text_body_sm: CustomTypography;
+    text_body_xs: CustomTypography;
+    text_heading_lg: CustomTypography;
+    text_heading_md: CustomTypography;
+    text_heading_sm: CustomTypography;
+    text_heading_xl: CustomTypography;
+    text_heading_xxl: CustomTypography;
   }
 
   /////////////////////////////////////////////////////////////////////////////
@@ -89,7 +90,7 @@ declare module '@emotion/react' {
   }
 
   /////////////////////////////////////////////////////////////////////////////
-  // Elevation Types (Box Shadow)
+  // Elevation Types (Box Shadow) & Color
   /////////////////////////////////////////////////////////////////////////////
 
   export interface Elevation {
@@ -110,7 +111,22 @@ declare module '@emotion/react' {
       GrayColor,
       CommonColor {}
 
-  export interface Theme {
+  /////////////////////////////////////////////////////////////////////////////
+  // Border Radius Types
+  /////////////////////////////////////////////////////////////////////////////
+  export interface Radius {
+    lg: number;
+    md: number;
+    sm: number;
+  }
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Fithub Theme
+  /////////////////////////////////////////////////////////////////////////////
+
+  export type Theme = FithubTheme;
+
+  export interface FithubTheme {
     color: Color;
     components: {
       // TODO: for theming custom components
@@ -118,6 +134,7 @@ declare module '@emotion/react' {
     elevation: Elevation;
     fontFamily: FontFamily;
     fontWeight: FontWeight;
+    radius: Radius;
     spacing: Spacing;
     transition: Transition;
     typography: TypographyModifier;

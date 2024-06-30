@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import type { TypographyModifier } from '@emotion/react';
 import { useTheme } from '@emotion/react';
 
 import Icon from '@/components/Icon';
@@ -23,6 +24,12 @@ const ICON_SIZE_PRESET: Record<ButtonSizeType, number> = {
   sm: 16
 };
 
+const TEXT_MODIFIER_PRESET: Record<ButtonSizeType, keyof TypographyModifier> = {
+  lg: 'text_heading_sm',
+  md: 'text_body_base',
+  sm: 'text_body_base'
+};
+
 const Button = (props: ButtonProps) => {
   const {
     'aria-label': ariaLabel = 'fithub button',
@@ -40,7 +47,7 @@ const Button = (props: ButtonProps) => {
   } = props;
   const { color } = useTheme();
 
-  const { iconSize, spinnerColor, spinnerSize } = useMemo(() => {
+  const { iconSize, spinnerColor, spinnerSize, textModifier } = useMemo(() => {
     let spinnerColor: Maybe<string>;
 
     switch (variant) {
@@ -66,7 +73,8 @@ const Button = (props: ButtonProps) => {
     return {
       iconSize: ICON_SIZE_PRESET[size],
       spinnerColor,
-      spinnerSize: SPINNER_SIZE_PRESET[size]
+      spinnerSize: SPINNER_SIZE_PRESET[size],
+      textModifier: TEXT_MODIFIER_PRESET[size]
     };
   }, [
     color.FITSKY500,
@@ -111,7 +119,13 @@ const Button = (props: ButtonProps) => {
         {icon && <Icon className="button-icon" icon={icon} size={iconSize} />}
 
         {children && (
-          <Typography className="button-text" tag="span" fontWeight="strong">
+          <Typography
+            className="button-text"
+            tag="span"
+            fontWeight="strong"
+            textAlign="center"
+            modifier={textModifier}
+          >
             {children}
           </Typography>
         )}

@@ -20,7 +20,7 @@ const TypographyTemplate = (
     children,
     fontWeight = 'regular',
     italic = false,
-    modifier = 'bodyBase',
+    modifier = 'text_body_base',
     notes,
     ...res
   } = props;
@@ -54,7 +54,7 @@ const TypographyTemplate = (
         {items.map((item) => {
           return (
             <Flex.Item key={item.key}>
-              <Typography modifier="bodySM" color={GRAY500}>
+              <Typography modifier="text_body_sm" color={GRAY500}>
                 {item.key}: <strong>{item.value}</strong>
               </Typography>
             </Flex.Item>
@@ -62,7 +62,7 @@ const TypographyTemplate = (
         })}
       </Flex>
       {notes && (
-        <Typography modifier="bodyXS" color={GRAY400} margin="8px 0 0">
+        <Typography modifier="text_body_xs" color={GRAY400} margin="8px 0 0">
           {notes}
         </Typography>
       )}
@@ -85,7 +85,7 @@ const TypographySectionExample = (
   return (
     <section>
       <Typography
-        modifier="headingSM"
+        modifier="text_heading_sm"
         color={GRAY700}
         fontWeight="strong"
         margin="8px 0 0"

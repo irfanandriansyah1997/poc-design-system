@@ -7,7 +7,7 @@ const meta = {
   decorators: [
     (Story) => {
       return (
-        <section css={{ minHeight: 100, minWidth: '100%' }}>
+        <section css={{ minHeight: 100, minWidth: '300px' }}>
           <Story />
         </section>
       );

@@ -1,8 +1,9 @@
 import type {
   Elevation,
+  FithubTheme,
   FontFamily,
+  Radius,
   Spacing,
-  Theme,
   Transition
 } from '@emotion/react';
 
@@ -128,7 +129,7 @@ export const GRAY700 = '#323436';
 export const GRAY800 = '#222224';
 export const GRAY900 = '#101820';
 
-const DEFAULT_COLOR: GetField<Theme, 'color'> = {
+const DEFAULT_COLOR: GetField<FithubTheme, 'color'> = {
   BLACK,
   BLUE100,
   BLUE200,
@@ -218,6 +219,16 @@ export const DEFAULT_ELEVATION: Elevation = {
 };
 
 /////////////////////////////////////////////////////////////////////////////
+// Border Radius
+/////////////////////////////////////////////////////////////////////////////
+
+export const RADIUS: Radius = {
+  lg: 12,
+  md: 8,
+  sm: 4
+};
+
+/////////////////////////////////////////////////////////////////////////////
 // Transition Constant
 /////////////////////////////////////////////////////////////////////////////
 
@@ -226,51 +237,52 @@ export const DEFAULT_TRANSITION: Transition = {
   timingFunction: 'cubic-bezier(0.63, 0.01, 0.29, 1)'
 };
 
-export const FITHUB_DEFAULT_DASHBOARD_THEME: Theme = {
+export const FITHUB_DEFAULT_DASHBOARD_THEME: FithubTheme = {
   color: DEFAULT_COLOR,
   components: {},
   elevation: DEFAULT_ELEVATION,
   fontFamily: DEFAULT_FONT_FAMILY,
   fontWeight: { regular: 400, strong: 650 },
+  radius: RADIUS,
   spacing: DEFAULT_SPACING,
   transition: DEFAULT_TRANSITION,
   typography: {
-    bodyBase: {
+    text_body_base: {
       fontSize: '14px',
       letterSpacing: '0.1px',
       lineHeight: '20px'
     },
-    bodySM: {
+    text_body_sm: {
       fontSize: '12px',
       letterSpacing: '0',
       lineHeight: '18px'
     },
-    bodyXS: {
+    text_body_xs: {
       fontSize: '10px',
       letterSpacing: '0.1px',
       lineHeight: '14px'
     },
-    headingLG: {
+    text_heading_lg: {
       fontSize: '28px',
       letterSpacing: '-0.6px',
       lineHeight: '40px'
     },
-    headingMD: {
+    text_heading_md: {
       fontSize: '22px',
       letterSpacing: '-0.4px',
       lineHeight: '32px'
     },
-    headingSM: {
+    text_heading_sm: {
       fontSize: '18px',
       letterSpacing: '-0.3px',
       lineHeight: '24px'
     },
-    headingXL: {
+    text_heading_xl: {
       fontSize: '34px',
       letterSpacing: '-0.7px',
       lineHeight: '48px'
     },
-    headingXXL: {
+    text_heading_xxl: {
       fontSize: '42px',
       letterSpacing: '-0.9px',
       lineHeight: '60px'
@@ -278,51 +290,52 @@ export const FITHUB_DEFAULT_DASHBOARD_THEME: Theme = {
   }
 };
 
-export const FITHUB_DEFAULT_LANDING_PAGE_THEME: Theme = {
+export const FITHUB_DEFAULT_LANDING_PAGE_THEME: FithubTheme = {
   color: DEFAULT_COLOR,
   components: {},
   elevation: DEFAULT_ELEVATION,
   fontFamily: DEFAULT_FONT_FAMILY,
-  fontWeight: { regular: 400, strong: 600 },
+  fontWeight: { regular: 400, strong: 650 },
+  radius: RADIUS,
   spacing: DEFAULT_SPACING,
   transition: DEFAULT_TRANSITION,
   typography: {
-    bodyBase: {
+    text_body_base: {
       fontSize: '18px',
       letterSpacing: '-0.3px',
       lineHeight: '26px'
     },
-    bodySM: {
+    text_body_sm: {
       fontSize: '14px',
       letterSpacing: '-0.1',
       lineHeight: '20px'
     },
-    bodyXS: {
+    text_body_xs: {
       fontSize: '12px',
       letterSpacing: '0',
       lineHeight: '18px'
     },
-    headingLG: {
+    text_heading_lg: {
       fontSize: '36px',
       letterSpacing: '-0.8px',
       lineHeight: '50px'
     },
-    headingMD: {
+    text_heading_md: {
       fontSize: '28px',
       letterSpacing: '-0.6px',
       lineHeight: '40px'
     },
-    headingSM: {
+    text_heading_sm: {
       fontSize: '22px',
       letterSpacing: '-0.4px',
       lineHeight: '32px'
     },
-    headingXL: {
+    text_heading_xl: {
       fontSize: '44px',
       letterSpacing: '-1px',
       lineHeight: '62px'
     },
-    headingXXL: {
+    text_heading_xxl: {
       fontSize: '54px',
       letterSpacing: '-1.2px',
       lineHeight: '76px'

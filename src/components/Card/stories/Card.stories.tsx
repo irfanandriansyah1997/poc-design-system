@@ -68,10 +68,14 @@ export const Basic: Story = {
   args: {
     children: (
       <>
-        <Typography modifier="headingMD" fontWeight="strong" margin="0 0 10px">
+        <Typography
+          modifier="text_heading_md"
+          fontWeight="strong"
+          margin="0 0 10px"
+        >
           Title
         </Typography>
-        <Typography modifier="bodyBase">
+        <Typography modifier="text_body_base">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
           nesciunt distinctio dignissimos
         </Typography>

@@ -13,7 +13,7 @@ import CardPreview from '@/storybook/components/CardPreview';
 const meta = {
   args: {
     color: FITSKY500,
-    icon: 'note-fill',
+    icon: 'credit-card-check',
     size: 40
   },
   component: Icon,

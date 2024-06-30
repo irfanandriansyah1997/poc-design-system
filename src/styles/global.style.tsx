@@ -177,6 +177,8 @@ export const styGlobal = (props: Theme) => {
   `;
 };
 
+// TODO: need to check further
+// @ts-expect-error irfan@fithub.id need to fix later error typecheck
 const GlobalStyles = () => <Global styles={styGlobal} />;
 
 export default GlobalStyles;

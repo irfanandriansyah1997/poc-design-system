@@ -106,23 +106,23 @@ export const HEADING_TYPOGRAPHY_MODIFIER_KIND: ComponentProps<
   typeof TypographySectionExample
 >['modifiers'] = [
   {
-    modifier: 'headingXXL',
+    modifier: 'text_heading_xxl',
     notes: 'Landing page only. Oversized titles, use only once per page.'
   },
   {
-    modifier: 'headingXL',
+    modifier: 'text_heading_xl',
     notes: 'Landing page only. Oversized titles, use only once per page.'
   },
   {
-    modifier: 'headingLG',
+    modifier: 'text_heading_lg',
     notes: 'Landing page only. Oversized titles, use only once per page.'
   },
   {
-    modifier: 'headingMD',
+    modifier: 'text_heading_md',
     notes: 'Page title in top navigation'
   },
   {
-    modifier: 'headingSM',
+    modifier: 'text_heading_sm',
     notes:
       'Section title, heading up a group of list items, success page title, feedback title, package month'
   }
@@ -131,7 +131,7 @@ export const HEADING_TYPOGRAPHY_MODIFIER_KIND: ComponentProps<
 export const BODY_TYPOGRAPHY_MODIFIER_KIND: ComponentProps<
   typeof TypographySectionExample
 >['modifiers'] = [
-  { modifier: 'bodyBase' },
-  { modifier: 'bodySM' },
-  { modifier: 'bodyXS' }
+  { modifier: 'text_body_base' },
+  { modifier: 'text_body_sm' },
+  { modifier: 'text_body_xs' }
 ];
