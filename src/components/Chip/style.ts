@@ -5,7 +5,7 @@ export const styChip = (props: Theme) => {
   const { color, radius, transition } = props;
 
   return css`
-    border-radius: ${radius.md}px;
+    border-radius: ${radius.md};
     display: flex;
     align-items: center;
     justify-content: center;

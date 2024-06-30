@@ -19,7 +19,7 @@ const meta = {
   parameters: {
     layout: 'centered'
   },
-  title: 'Molecules/Chip'
+  title: 'Data Display/Chip'
 } satisfies Meta<typeof Chip>;
 
 export default meta;

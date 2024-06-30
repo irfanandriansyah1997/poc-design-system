@@ -22,7 +22,7 @@ const meta = {
   parameters: {
     layout: 'centered'
   },
-  title: 'Molecules/Label'
+  title: 'Data Display/Label'
 } satisfies Meta<typeof Label>;
 
 export default meta;

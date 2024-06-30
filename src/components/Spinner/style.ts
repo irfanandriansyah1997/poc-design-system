@@ -6,13 +6,13 @@ import { WHITE } from '@/constants/theme';
 import { keyframeRotation } from '@/styles/animation.style';
 
 export const stySpinner = (props: Theme) => {
-  const { elevation } = props;
+  const { elevation, radius } = props;
 
   return css`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: ${radius.circle};
     overflow: hidden;
 
     &[data-wrap-container='true'] {
@@ -31,7 +31,7 @@ export const stySpinner = (props: Theme) => {
     .spinner {
       border: 5px solid #fff;
       border-bottom-color: transparent;
-      border-radius: 50%;
+      border-radius: ${radius.circle};
       display: inline-block;
       box-sizing: border-box;
       animation: ${keyframeRotation} 1s linear infinite;

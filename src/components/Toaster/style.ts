@@ -28,7 +28,8 @@ const transitionFadeOutScale = keyframes`
 export const styToaster = (props: Theme) => {
   const {
     color: { GRAY900, WHITE },
-    elevation: { lg }
+    elevation,
+    radius
   } = props;
 
   return css`
@@ -59,8 +60,8 @@ export const styToaster = (props: Theme) => {
     .toaster {
       &__container {
         background-color: ${WHITE};
-        box-shadow: ${lg};
-        border-radius: 4px;
+        box-shadow: ${elevation.lg};
+        border-radius: ${radius.sm};
         padding: 10px 16px;
         min-height: 40px;
         width: fit-content;

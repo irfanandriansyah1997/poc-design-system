@@ -30,7 +30,7 @@ const meta = {
     layout: 'centered'
   },
   tags: ['autodocs'],
-  title: 'Atomic/Typography'
+  title: 'General/Typography'
 } satisfies Meta<typeof Typography>;
 
 export default meta;

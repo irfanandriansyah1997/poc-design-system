@@ -57,7 +57,7 @@ const meta = {
     layout: 'centered'
   },
   tags: ['autodocs'],
-  title: 'Atomic/Card'
+  title: 'Data Display/Card'
 } satisfies Meta<typeof Card>;
 
 export default meta;

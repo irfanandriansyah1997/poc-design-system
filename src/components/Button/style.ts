@@ -457,7 +457,7 @@ export const styButton = (props: Theme) => {
     &[data-size='sm'] {
       padding: 0 16px;
       height: 32px;
-      border-radius: ${radius.sm}px;
+      border-radius: ${radius.sm};
 
       &[data-only-icon='true'] {
         width: 32px;
@@ -467,7 +467,7 @@ export const styButton = (props: Theme) => {
     &[data-size='md'] {
       padding: 0 24px;
       height: 44px;
-      border-radius: ${radius.md}px;
+      border-radius: ${radius.md};
 
       &[data-only-icon='true'] {
         width: 44px;
@@ -477,7 +477,7 @@ export const styButton = (props: Theme) => {
     &[data-size='lg'] {
       padding: 0 36px;
       height: 60px;
-      border-radius: ${radius.lg}px;
+      border-radius: ${radius.lg};
 
       &[data-only-icon='true'] {
         width: 60px;
