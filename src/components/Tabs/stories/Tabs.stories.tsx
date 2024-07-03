@@ -48,6 +48,29 @@ export const Basic: Story = {
   }
 };
 
+export const WithBorder: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'This example demonstrates how to use the Tabs component'
+      }
+    }
+  },
+  render: () => {
+    const [activeKey, setActiveKey] = useState<string | number>('1');
+
+    return (
+      <>
+        <Tabs activeKey={activeKey} onTabClick={setActiveKey} withBorder>
+          <Tabs.Item keyName="1">1 item</Tabs.Item>
+          <Tabs.Item keyName="2">2 item</Tabs.Item>
+          <Tabs.Item keyName="3">3 item</Tabs.Item>
+        </Tabs>
+      </>
+    );
+  }
+};
+
 export const VariantCenter: Story = {
   parameters: {
     docs: {
@@ -61,7 +84,12 @@ export const VariantCenter: Story = {
 
     return (
       <>
-        <Tabs activeKey={activeKey} onTabClick={setActiveKey} variant="center">
+        <Tabs
+          activeKey={activeKey}
+          onTabClick={setActiveKey}
+          variant="center"
+          withBorder
+        >
           <Tabs.Item keyName="1">1 item</Tabs.Item>
           <Tabs.Item keyName="2">2 item</Tabs.Item>
           <Tabs.Item keyName="3">3 item</Tabs.Item>
@@ -84,7 +112,12 @@ export const VariantEqual: Story = {
 
     return (
       <>
-        <Tabs activeKey={activeKey} onTabClick={setActiveKey} variant="equal">
+        <Tabs
+          activeKey={activeKey}
+          onTabClick={setActiveKey}
+          variant="equal"
+          withBorder
+        >
           <Tabs.Item keyName="1">1 item</Tabs.Item>
           <Tabs.Item keyName="2">2 item</Tabs.Item>
           <Tabs.Item keyName="3">3 item</Tabs.Item>
@@ -108,7 +141,7 @@ export const ScrollBehavior: Story = {
 
     return (
       <>
-        <Tabs activeKey={activeKey} onTabClick={setActiveKey}>
+        <Tabs activeKey={activeKey} onTabClick={setActiveKey} withBorder>
           <Tabs.Item keyName="1">1 item</Tabs.Item>
           <Tabs.Item keyName="2">2 item</Tabs.Item>
           <Tabs.Item keyName="3">3 item</Tabs.Item>

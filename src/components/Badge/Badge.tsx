@@ -5,11 +5,11 @@ import { useTheme } from '@emotion/react';
 
 import Typography from '@/components/Typography';
 
+import type { GenericHTMLProps } from '@/types/react';
+
 import { styBadge } from './style';
 
-type HTMLSectionProps = Omit<HTMLAttributes<HTMLElement>, 'style'>;
-
-interface BadgeProps extends HTMLSectionProps {
+interface BadgeProps extends GenericHTMLProps<HTMLAttributes<HTMLElement>> {
   /**
    * The background color of the badge.
    */

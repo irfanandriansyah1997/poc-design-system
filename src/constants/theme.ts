@@ -241,7 +241,16 @@ export const DEFAULT_TRANSITION: Transition = {
 
 export const FITHUB_DEFAULT_DASHBOARD_THEME: FithubTheme = {
   color: DEFAULT_COLOR,
-  components: {},
+  components: {
+    'button-lg-modifier': 'text_heading_sm',
+    'button-md-modifier': 'text_body_base',
+    'button-sm-modifier': 'text_body_base',
+    'chip-text-modifier': 'text_body_base',
+    'label-text-md-modifier': 'text_body_base',
+    'label-text-sm-modifier': 'text_body_sm',
+    'snackbar-cta-modifier': 'text_body_sm',
+    'snackbar-text-modifier': 'text_body_base'
+  },
   elevation: DEFAULT_ELEVATION,
   fontFamily: DEFAULT_FONT_FAMILY,
   fontWeight: { regular: 400, strong: 650 },
@@ -294,7 +303,16 @@ export const FITHUB_DEFAULT_DASHBOARD_THEME: FithubTheme = {
 
 export const FITHUB_DEFAULT_LANDING_PAGE_THEME: FithubTheme = {
   color: DEFAULT_COLOR,
-  components: {},
+  components: {
+    'button-lg-modifier': 'text_body_base',
+    'button-md-modifier': 'text_body_sm',
+    'button-sm-modifier': 'text_body_sm',
+    'chip-text-modifier': 'text_body_sm',
+    'label-text-md-modifier': 'text_body_sm',
+    'label-text-sm-modifier': 'text_body_xs',
+    'snackbar-cta-modifier': 'text_body_sm',
+    'snackbar-text-modifier': 'text_body_sm'
+  },
   elevation: DEFAULT_ELEVATION,
   fontFamily: DEFAULT_FONT_FAMILY,
   fontWeight: { regular: 400, strong: 650 },
@@ -325,12 +343,12 @@ export const FITHUB_DEFAULT_LANDING_PAGE_THEME: FithubTheme = {
     text_heading_md: {
       fontSize: '28px',
       letterSpacing: '-0.6px',
-      lineHeight: '40px'
+      lineHeight: '39px'
     },
     text_heading_sm: {
       fontSize: '22px',
       letterSpacing: '-0.4px',
-      lineHeight: '32px'
+      lineHeight: '31px'
     },
     text_heading_xl: {
       fontSize: '44px',

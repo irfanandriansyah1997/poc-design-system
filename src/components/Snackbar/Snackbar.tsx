@@ -14,12 +14,12 @@ import Flex from '@/components/Flex';
 import Icon from '@/components/Icon';
 import Typography from '@/components/Typography';
 
-import { styToaster } from './style';
-import type { ToasterProps, ToasterRefType } from './types';
+import { stySnackbar } from './style';
+import type { SnackbarProps, SnackbarRefType } from './types';
 
-const Toaster = forwardRef<ToasterRefType, ToasterProps>((props, ref) => {
+const Snackbar = forwardRef<SnackbarRefType, SnackbarProps>((props, ref) => {
   const {
-    autoClose,
+    autoClose = 5000,
     ctaLabel,
     icon,
     iconColor = 'GRAY500',
@@ -28,7 +28,13 @@ const Toaster = forwardRef<ToasterRefType, ToasterProps>((props, ref) => {
     onCtaClick,
     theme = 'light'
   } = props;
-  const { color } = useTheme();
+  const {
+    color,
+    components: {
+      'snackbar-cta-modifier': cta = 'text_body_base',
+      'snackbar-text-modifier': text = 'text_body_base'
+    }
+  } = useTheme();
   const node = useRef<HTMLElement>(null);
 
   useImperativeHandle(
@@ -55,6 +61,15 @@ const Toaster = forwardRef<ToasterRefType, ToasterProps>((props, ref) => {
     [handleHideToaster, onCtaClick]
   );
 
+  const handleOnClickClose: MouseEventHandler<HTMLButtonElement> = useCallback(
+    (e) => {
+      e.preventDefault();
+
+      handleHideToaster();
+    },
+    [handleHideToaster]
+  );
+
   const handleOnAnimationEnd: AnimationEventHandler<HTMLElement> = (e) => {
     const { currentTarget } = e;
 
@@ -70,6 +85,7 @@ const Toaster = forwardRef<ToasterRefType, ToasterProps>((props, ref) => {
       const timeout = setTimeout(() => {
         handleHideToaster();
       }, autoClose);
+
       return () => {
         clearTimeout(timeout);
       };
@@ -85,11 +101,11 @@ const Toaster = forwardRef<ToasterRefType, ToasterProps>((props, ref) => {
     <section
       ref={node}
       className="animate"
-      css={styToaster}
+      css={stySnackbar}
       onAnimationEnd={handleOnAnimationEnd}
     >
       <Flex
-        className="toaster__container"
+        className="snackbar__container"
         gap={8}
         data-theme={theme}
         alignItems="center"
@@ -99,28 +115,49 @@ const Toaster = forwardRef<ToasterRefType, ToasterProps>((props, ref) => {
             <Icon icon={icon} color={color[iconColor]} size={20} />
           </Flex.Item>
         )}
+
         <Flex.Item>
-          <Typography tag="p" modifier="text_body_base">
+          <Typography
+            tag="p"
+            modifier={text}
+            className="snackbar__text"
+            color={theme === 'dark' ? color.WHITE : color.GRAY900}
+          >
             {message}
           </Typography>
         </Flex.Item>
-        {ctaLabel && (
-          <Flex.Item>
-            <button className="toaster__button" onClick={handleOnClickCTA}>
-              <Typography
-                tag="span"
-                fontWeight="strong"
-                modifier="text_body_base"
-                color={color.BLUE500}
-              >
-                {ctaLabel}
-              </Typography>
-            </button>
-          </Flex.Item>
-        )}
+
+        <Flex.Item>
+          <Flex gap={4} alignItems="center">
+            {ctaLabel && (
+              <Flex.Item>
+                <button className="snackbar__button" onClick={handleOnClickCTA}>
+                  <Typography
+                    tag="span"
+                    fontWeight="strong"
+                    modifier={cta}
+                    color={theme === 'dark' ? color.WHITE : color.GRAY500}
+                  >
+                    {ctaLabel}
+                  </Typography>
+                </button>
+              </Flex.Item>
+            )}
+
+            <Flex.Item>
+              <button className="snackbar__close" onClick={handleOnClickClose}>
+                <Icon
+                  icon="close"
+                  size={16}
+                  color={theme === 'dark' ? color.WHITE : color.GRAY500}
+                />
+              </button>
+            </Flex.Item>
+          </Flex>
+        </Flex.Item>
       </Flex>
     </section>
   );
 });
 
-export default memo(Toaster);
+export default memo(Snackbar);

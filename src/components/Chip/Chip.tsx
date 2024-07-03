@@ -9,10 +9,9 @@ import Typography from '@/components/Typography';
 
 import { cx } from '@/utils/css';
 import type { FithubIconType } from '@/types/icon';
+import type { GenericHTMLProps } from '@/types/react';
 
 import { styChip } from './style';
-
-type HTMLSectionProps = Omit<HTMLAttributes<HTMLElement>, 'style'>;
 
 interface ChipSuffixIconElementType {
   type: 'icon';
@@ -28,7 +27,7 @@ type ChipSuffixElementType =
   | ChipSuffixIconElementType
   | ChipSuffixBadgeElementType;
 
-interface ChipProps extends HTMLSectionProps {
+interface ChipProps extends GenericHTMLProps<HTMLAttributes<HTMLElement>> {
   /**
    * Whether the chip is checked.
    * @default false
@@ -66,7 +65,10 @@ const Chip = (props: ChipProps) => {
     text,
     ...res
   } = props;
-  const { color } = useTheme();
+  const {
+    color,
+    components: { 'chip-text-modifier': modifier = 'text_body_base' }
+  } = useTheme();
 
   const cssStyle = useMemo(() => {
     const isPreffixAvailable = Boolean(preffixIcon);
@@ -113,7 +115,7 @@ const Chip = (props: ChipProps) => {
       <Typography
         css={cssStyle}
         className="chip__text"
-        modifier="text_body_base"
+        modifier={modifier}
         fontWeight="strong"
       >
         {text}

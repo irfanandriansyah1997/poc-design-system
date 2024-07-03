@@ -2,15 +2,17 @@ import type { forwardRef, HTMLAttributes, PropsWithChildren } from 'react';
 
 import type { Property } from 'csstype';
 
-import type { GenericCompoundComponentType } from '@/types/react';
-
-type HTMLSectionProps = Omit<HTMLAttributes<HTMLElement>, 'style'>;
+import type {
+  GenericCompoundComponentType,
+  GenericHTMLProps
+} from '@/types/react';
 
 /////////////////////////////////////////////////////////////////////////////
 // Flex Item Component Interface
 /////////////////////////////////////////////////////////////////////////////
 
-export interface FlexItemProps extends HTMLSectionProps {
+export interface FlexItemProps
+  extends GenericHTMLProps<HTMLAttributes<HTMLElement>> {
   fullWidth?: boolean;
 }
 
@@ -36,7 +38,10 @@ interface BaseFlexProps {
   justifyContent: Property.JustifyContent;
 }
 
-export type FlexProps = Omit<HTMLSectionProps, keyof BaseFlexProps> &
+export type FlexProps = Omit<
+  GenericHTMLProps<HTMLAttributes<HTMLElement>>,
+  keyof BaseFlexProps
+> &
   Partial<BaseFlexProps>;
 
 export type FlexFnType = ReturnType<
