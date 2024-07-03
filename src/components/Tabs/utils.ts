@@ -12,8 +12,8 @@ export const calcIndicator = (
     const activeTabLeft = (activeTabNode as HTMLElement)?.offsetLeft;
 
     Object.assign(indicatorNode.style, {
-      translate: `${activeTabLeft + 8}px 0`,
-      width: `${activeTabWidth - 16}px`
+      translate: `${activeTabLeft + 12}px 0`,
+      width: `${activeTabWidth - 24}px`
     });
   }
 };

@@ -15,7 +15,8 @@ import type { TabProps } from './types';
 import { autoScroll, calcIndicator, calcOverflowMask } from './utils';
 
 const Tabs = (props: PropsWithChildren<TabProps>) => {
-  const { activeKey, children, onTabClick, variant, ...res } = props;
+  const { activeKey, children, onTabClick, variant, withBorder, ...res } =
+    props;
   let activeIndex = 0;
   const tabBarRef = useRef<HTMLElement>(null);
   const indicatorRef = useRef<HTMLElement>(null);
@@ -84,15 +85,18 @@ const Tabs = (props: PropsWithChildren<TabProps>) => {
   }, []);
 
   return (
-    <section
-      css={styTab}
-      {...res}
-      data-variant={variant}
-      ref={tabBarRef}
-      onScroll={handleTabScroll}
-    >
-      {TabItem}
-      <section className="tab__indicator" ref={indicatorRef} />
+    <section css={styTab}>
+      <section
+        {...res}
+        className="tab__container"
+        data-with-border={withBorder}
+        data-variant={variant}
+        ref={tabBarRef}
+        onScroll={handleTabScroll}
+      >
+        {TabItem}
+        <section className="tab__indicator" ref={indicatorRef} />
+      </section>
     </section>
   );
 };

@@ -10,6 +10,16 @@ export const styImage = (props: Theme) => {
     background: ${color.GRAY50};
     overflow: hidden;
 
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
     &[data-transparent='true'] {
       background: transparent;
     }

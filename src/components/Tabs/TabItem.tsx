@@ -40,7 +40,7 @@ const TabItem: TabItemFnType = (props) => {
       <Typography
         className="tab-item__text"
         fontWeight="strong"
-        modifier="text_body_sm"
+        modifier="text_body_base"
         textAlign="center"
       >
         {children}

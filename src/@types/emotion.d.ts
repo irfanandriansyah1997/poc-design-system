@@ -131,7 +131,29 @@ declare module '@emotion/react' {
   export interface FithubTheme {
     color: Color;
     components: {
-      // TODO: for theming custom components
+      /**
+       * Button Component
+       */
+      'button-lg-modifier'?: keyof TypographyModifier;
+      'button-md-modifier'?: keyof TypographyModifier;
+      'button-sm-modifier'?: keyof TypographyModifier;
+
+      /**
+       * Chip Component
+       */
+      'chip-text-modifier'?: keyof TypographyModifier;
+
+      /**
+       * Label Component
+       */
+      'label-text-md-modifier'?: keyof TypographyModifier;
+      'label-text-sm-modifier'?: keyof TypographyModifier;
+
+      /**
+       * Snackbar Component
+       */
+      'snackbar-cta-modifier'?: keyof TypographyModifier;
+      'snackbar-text-modifier'?: keyof TypographyModifier;
     };
     elevation: Elevation;
     fontFamily: FontFamily;

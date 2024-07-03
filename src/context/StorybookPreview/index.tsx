@@ -1,15 +1,15 @@
 import type { PropsWithChildren } from 'react';
 
-import type { Theme } from '@emotion/react';
+import type { FithubTheme } from '@emotion/react';
 
 import DesignSystemProvider from '@/context/DesignSystem';
 
-import Toaster from '@/components/Toaster';
+import Snackbar from '@/components/Snackbar';
 
 import { FITHUB_DEFAULT_DASHBOARD_THEME } from '@/constants/theme';
 
 interface StorybookPreviewProviderProps {
-  theme?: Theme;
+  theme?: FithubTheme;
 }
 
 const StorybookProvider = (
@@ -19,7 +19,7 @@ const StorybookProvider = (
 
   return (
     <DesignSystemProvider theme={theme}>
-      <Toaster.Provider>{children}</Toaster.Provider>
+      <Snackbar.Provider>{children}</Snackbar.Provider>
     </DesignSystemProvider>
   );
 };

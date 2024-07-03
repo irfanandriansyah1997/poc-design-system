@@ -40,14 +40,14 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
     modifier: [
       {
         active: {
-          backgroundColor: 'FITSKY600',
-          borderColor: 'FITSKY600',
+          backgroundColor: 'FITSKY700',
+          borderColor: 'FITSKY700',
           iconColor: 'WHITE',
           textColor: 'WHITE'
         },
         defaultState: {
-          backgroundColor: 'FITSKY500',
-          borderColor: 'FITSKY500',
+          backgroundColor: 'FITSKY600',
+          borderColor: 'FITSKY600',
           iconColor: 'WHITE',
           textColor: 'WHITE'
         },
@@ -58,15 +58,15 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
           textColor: 'GRAY200'
         },
         hover: {
-          backgroundColor: 'FITSKY400',
-          borderColor: 'FITSKY400',
+          backgroundColor: 'FITSKY500',
+          borderColor: 'FITSKY500',
           iconColor: 'WHITE',
           textColor: 'WHITE'
         },
         key: 'primary',
         loading: {
-          backgroundColor: 'FITSKY300',
-          borderColor: 'FITSKY300',
+          backgroundColor: 'FITSKY400',
+          borderColor: 'FITSKY400',
           iconColor: 'WHITE',
           textColor: 'WHITE'
         }
@@ -149,9 +149,9 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
       {
         active: {
           backgroundColor: 'WHITE',
-          borderColor: 'FITSKY600',
-          iconColor: 'FITSKY600',
-          textColor: 'FITSKY600'
+          borderColor: 'FITSKY700',
+          iconColor: 'FITSKY700',
+          textColor: 'FITSKY700'
         },
         defaultState: {
           backgroundColor: 'WHITE',
@@ -167,16 +167,16 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
         },
         hover: {
           backgroundColor: 'WHITE',
-          borderColor: 'FITSKY400',
+          borderColor: 'FITSKY500',
           iconColor: 'FITSKY500',
           textColor: 'FITSKY500'
         },
         key: 'primary',
         loading: {
           backgroundColor: 'WHITE',
-          borderColor: 'FITSKY300',
-          iconColor: 'FITSKY500',
-          textColor: 'FITSKY500'
+          borderColor: 'FITSKY400',
+          iconColor: 'FITSKY400',
+          textColor: 'FITSKY400'
         }
       },
       {
@@ -208,8 +208,8 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
         loading: {
           backgroundColor: 'WHITE',
           borderColor: 'RED300',
-          iconColor: 'RED500',
-          textColor: 'RED500'
+          iconColor: 'RED300',
+          textColor: 'RED300'
         }
       }
     ]
@@ -224,9 +224,9 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
       {
         active: {
           backgroundColor: 'WHITE',
-          borderColor: 'FITSKY600',
-          iconColor: 'FITSKY600',
-          textColor: 'FITSKY600'
+          borderColor: 'FITSKY700',
+          iconColor: 'FITSKY700',
+          textColor: 'FITSKY700'
         },
         defaultState: {
           backgroundColor: 'WHITE',
@@ -242,16 +242,16 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
         },
         hover: {
           backgroundColor: 'WHITE',
-          borderColor: 'FITSKY400',
+          borderColor: 'FITSKY500',
           iconColor: 'FITSKY500',
           textColor: 'FITSKY500'
         },
         key: 'primary',
         loading: {
           backgroundColor: 'WHITE',
-          borderColor: 'FITSKY300',
-          iconColor: 'FITSKY500',
-          textColor: 'FITSKY500'
+          borderColor: 'FITSKY400',
+          iconColor: 'FITSKY400',
+          textColor: 'FITSKY400'
         }
       },
       {
@@ -283,8 +283,8 @@ const BUTTON_STYLING: ButtonStylingVariantType[] = [
         loading: {
           backgroundColor: 'WHITE',
           borderColor: 'RED300',
-          iconColor: 'RED500',
-          textColor: 'RED500'
+          iconColor: 'RED300',
+          textColor: 'RED300'
         }
       }
     ]

@@ -5,7 +5,7 @@ import { useTheme } from '@emotion/react';
 import Card from '@/components/Card';
 import Flex from '@/components/Flex';
 import Icon from '@/components/Icon';
-import Toaster from '@/components/Toaster';
+import Snackbar from '@/components/Snackbar';
 import Typography from '@/components/Typography';
 
 import { styCardPreview } from './style';
@@ -20,7 +20,7 @@ const CardPreview = (props: PropsWithChildren<CardPreviewProps>) => {
   const {
     color: { FITSKY500, GRAY500 }
   } = useTheme();
-  const { open } = Toaster.useToaster();
+  const { open } = Snackbar.useSnackbar();
 
   const handleOnClick = useCallback(() => {
     navigator.clipboard
@@ -28,10 +28,9 @@ const CardPreview = (props: PropsWithChildren<CardPreviewProps>) => {
       .then(() => {
         open({
           autoClose: 1000,
-          icon: 'check-circle',
+          icon: 'task-check-line',
           iconColor: 'GREEN500',
-          message: 'Success copied source code!',
-          theme: 'light'
+          message: 'Success copied source code!'
         });
       })
       .catch((err) => {

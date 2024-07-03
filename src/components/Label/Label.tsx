@@ -1,16 +1,17 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { isValidElement, useMemo } from 'react';
 
+import { useTheme } from '@emotion/react';
+
 import Icon from '@/components/Icon';
 import Typography from '@/components/Typography';
 
 import type { FithubIconType } from '@/types/icon';
+import type { GenericHTMLProps } from '@/types/react';
 
 import { styLabel } from './style';
 
 type LabelSizeType = 'default' | 'small';
-
-type HTMLSectionProps = Omit<HTMLAttributes<HTMLElement>, 'style'>;
 
 /////////////////////////////////////////////////////////////////////////////
 // Label Additional Element
@@ -36,7 +37,7 @@ const LabelAdditionalElement = (props: LabelAdditionalElementProps) => {
 // Label Container
 /////////////////////////////////////////////////////////////////////////////
 
-interface LabelProps extends HTMLSectionProps {
+interface LabelProps extends GenericHTMLProps<HTMLAttributes<HTMLElement>> {
   /**
    * The background color of the label
    */
@@ -83,6 +84,12 @@ const Label = (props: LabelProps) => {
     textColor,
     ...res
   } = props;
+  const {
+    components: {
+      'label-text-md-modifier': mdModifier = 'text_body_base',
+      'label-text-sm-modifier': smModifier = 'text_body_sm'
+    }
+  } = useTheme();
 
   const cssStyle = useMemo(() => {
     const isSuffixAvailable = Boolean(suffixElement || suffixIcon);
@@ -127,7 +134,7 @@ const Label = (props: LabelProps) => {
 
       <Typography
         className="label__text"
-        modifier={size === 'default' ? 'text_body_base' : 'text_body_sm'}
+        modifier={size === 'default' ? mdModifier : smModifier}
         css={cssStyle}
         color={textColor}
         fontWeight="strong"

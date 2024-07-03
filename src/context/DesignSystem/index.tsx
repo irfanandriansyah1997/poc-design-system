@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 
-import type { Theme } from '@emotion/react';
+import type { FithubTheme } from '@emotion/react';
 import { ThemeProvider } from '@emotion/react';
 
 import { FITHUB_DEFAULT_DASHBOARD_THEME } from '@/constants/theme';
@@ -8,7 +8,7 @@ import { FITHUB_DEFAULT_DASHBOARD_THEME } from '@/constants/theme';
 import GlobalStyles from '@/styles/global.style';
 
 interface DesignSystemProviderProps {
-  theme?: Theme;
+  theme?: FithubTheme;
 }
 
 const DesignSystemProvider = (

@@ -24,12 +24,6 @@ const ICON_SIZE_PRESET: Record<ButtonSizeType, number> = {
   sm: 16
 };
 
-const TEXT_MODIFIER_PRESET: Record<ButtonSizeType, keyof TypographyModifier> = {
-  lg: 'text_heading_sm',
-  md: 'text_body_base',
-  sm: 'text_body_base'
-};
-
 const Button = (props: ButtonProps) => {
   const {
     'aria-label': ariaLabel = 'fithub button',
@@ -45,7 +39,14 @@ const Button = (props: ButtonProps) => {
     variant = 'fill',
     ...res
   } = props;
-  const { color } = useTheme();
+  const {
+    color,
+    components: {
+      'button-lg-modifier': lg = 'text_heading_sm',
+      'button-md-modifier': md = 'text_body_base',
+      'button-sm-modifier': sm = 'text_body_base'
+    }
+  } = useTheme();
 
   const { iconSize, spinnerColor, spinnerSize, textModifier } = useMemo(() => {
     let spinnerColor: Maybe<string>;
@@ -59,8 +60,12 @@ const Button = (props: ButtonProps) => {
 
       case 'outline':
       case 'dashed':
+        if (modifier === 'primary') spinnerColor = color.FITSKY400;
+        if (modifier === 'danger') spinnerColor = color.RED300;
+        break;
+
       case 'link':
-        if (modifier === 'primary') spinnerColor = color.FITSKY500;
+        if (modifier === 'primary') spinnerColor = color.FITSKY600;
         if (modifier === 'danger') spinnerColor = color.RED500;
         break;
 
@@ -70,6 +75,15 @@ const Button = (props: ButtonProps) => {
         break;
     }
 
+    const TEXT_MODIFIER_PRESET: Record<
+      ButtonSizeType,
+      keyof TypographyModifier
+    > = {
+      lg,
+      md,
+      sm
+    };
+
     return {
       iconSize: ICON_SIZE_PRESET[size],
       spinnerColor,
@@ -77,13 +91,18 @@ const Button = (props: ButtonProps) => {
       textModifier: TEXT_MODIFIER_PRESET[size]
     };
   }, [
-    color.FITSKY500,
+    color.FITSKY400,
+    color.FITSKY600,
     color.GRAY500,
     color.GRAY900,
+    color.RED300,
     color.RED500,
     color.WHITE,
+    lg,
+    md,
     modifier,
     size,
+    sm,
     variant
   ]);
 
