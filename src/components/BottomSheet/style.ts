@@ -2,11 +2,11 @@ import type { Theme } from '@emotion/react';
 import { css } from '@emotion/react';
 
 import {
-  keyframeFadeInScale,
-  keyframeFadeOutScale
+  keyframeSlideBottom,
+  keyframeSlideTop
 } from '@/styles/animation.style';
 
-export const styModal = (props: Theme) => {
+export const styBottomSheet = (props: Theme) => {
   const { color, elevation } = props;
 
   return css`
@@ -17,61 +17,74 @@ export const styModal = (props: Theme) => {
     left: 0;
     bottom: 0;
     width: 100%;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     pointer-events: none;
 
-    .modal {
+    .bottom-sheet {
       &__container {
         display: flex;
         flex-direction: column;
-        min-width: 200px;
-        pointer-events: auto;
-        border-radius: 16px;
-        width: fit-content;
-        max-height: 90%;
         background-color: ${color.WHITE};
-        animation-name: ${keyframeFadeOutScale};
-        animation-duration: 0.15s;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        pointer-events: auto;
+        max-width: 600px;
+        animation-name: ${keyframeSlideBottom};
+        animation-duration: 0.25s;
         box-shadow: ${elevation.xl};
         overflow: hidden;
 
         &[data-show='true'] {
-          animation-name: ${keyframeFadeInScale};
-          animation-duration: 0.2s;
+          animation-name: ${keyframeSlideTop};
+          animation-duration: 0.25s;
         }
       }
 
       &__header {
         position: sticky;
         flex-shrink: 0;
-        min-height: 56px;
-        padding: 6px 16px;
-        border-bottom: 1px solid ${color.GRAY50};
+        min-height: 52px;
+        top: 0;
+        padding: 4px 4px 4px 16px;
         background: ${color.WHITE};
+        border-bottom: 1px solid ${color.GRAY50};
         z-index: 100;
       }
 
       &__content {
+        display: flex;
+        flex-direction: column;
         flex-shrink: 1;
         flex-grow: 1;
         overflow: auto;
+
+        [data-content] {
+          flex-shrink: 1;
+          flex-grow: 1;
+        }
+
+        [data-fotter] {
+          flex-shrink: 0;
+        }
       }
     }
   `;
 };
 
-export const styModalFooter = (props: Theme) => {
+export const styBottomSheetFooter = (props: Theme) => {
   const { color } = props;
 
   return css`
     position: sticky;
     bottom: 0;
     border-top: 1px solid ${color.GRAY50};
-    padding: 12px 16px;
+    padding: 16px;
   `;
 };
 
-export const styModalContent = css`
+export const styBottomSheetContent = css`
   padding: 16px;
 `;
