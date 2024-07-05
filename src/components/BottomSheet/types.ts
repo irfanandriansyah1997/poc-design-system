@@ -2,38 +2,39 @@ import type { PropsWithChildren } from 'react';
 
 import type { BaseModalProps } from '@/types/modal';
 import type { GenericCompoundComponentType } from '@/types/react';
+import type { LiteralUnion } from '@/types/utils';
 
 /////////////////////////////////////////////////////////////////////////////
 // Content Section
 /////////////////////////////////////////////////////////////////////////////
 
-export type ModalContentFnType = GenericCompoundComponentType<
+export type BottomSheetContentFnType = GenericCompoundComponentType<
   (props: PropsWithChildren<unknown>) => JSX.Element,
-  'modal-content'
+  'bottom-sheet-content'
 >;
 
 /////////////////////////////////////////////////////////////////////////////
 // Footer Section
 /////////////////////////////////////////////////////////////////////////////
 
-export type ModalFooterFnType = GenericCompoundComponentType<
+export type BottomSheetFooterFnType = GenericCompoundComponentType<
   (props: PropsWithChildren<unknown>) => JSX.Element,
-  'modal-footer'
+  'bottom-sheet-footer'
 >;
 
 /////////////////////////////////////////////////////////////////////////////
-// Modal Container Section
+// Bottom Sheet Container Section
 /////////////////////////////////////////////////////////////////////////////
 
-export interface ModalProps extends BaseModalProps {
+export interface BottomSheetProps extends BaseModalProps {
+  height?: LiteralUnion<'fullscreen' | 'halfscreen' | 'auto', string | number>;
   hideCloseButton?: boolean;
-  maxWidth?: string | number;
   title: string;
 }
 
-export type ModalFnType = ((
-  props: PropsWithChildren<ModalProps>
+export type BottomSheetFnType = ((
+  props: PropsWithChildren<BottomSheetProps>
 ) => JSX.Element) & {
-  Content: ModalContentFnType;
-  Footer: ModalFooterFnType;
+  Content: BottomSheetContentFnType;
+  Footer: BottomSheetFooterFnType;
 };

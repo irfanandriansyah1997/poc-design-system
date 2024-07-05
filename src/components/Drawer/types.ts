@@ -4,36 +4,38 @@ import type { BaseModalProps } from '@/types/modal';
 import type { GenericCompoundComponentType } from '@/types/react';
 
 /////////////////////////////////////////////////////////////////////////////
+// Header Section
+/////////////////////////////////////////////////////////////////////////////
+
+export interface DrawerHeaderProps {
+  hideCloseButton?: boolean;
+}
+
+export type DrawerHeaderFnType = GenericCompoundComponentType<
+  (props: PropsWithChildren<DrawerHeaderProps>) => JSX.Element,
+  'drawer-header'
+>;
+
+/////////////////////////////////////////////////////////////////////////////
 // Content Section
 /////////////////////////////////////////////////////////////////////////////
 
-export type ModalContentFnType = GenericCompoundComponentType<
+export type DrawerContentFnType = GenericCompoundComponentType<
   (props: PropsWithChildren<unknown>) => JSX.Element,
-  'modal-content'
+  'drawer-content'
 >;
 
 /////////////////////////////////////////////////////////////////////////////
-// Footer Section
+// Drawer Container Section
 /////////////////////////////////////////////////////////////////////////////
 
-export type ModalFooterFnType = GenericCompoundComponentType<
-  (props: PropsWithChildren<unknown>) => JSX.Element,
-  'modal-footer'
->;
-
-/////////////////////////////////////////////////////////////////////////////
-// Modal Container Section
-/////////////////////////////////////////////////////////////////////////////
-
-export interface ModalProps extends BaseModalProps {
-  hideCloseButton?: boolean;
-  maxWidth?: string | number;
-  title: string;
+export interface DrawerProps extends BaseModalProps {
+  width?: string;
 }
 
-export type ModalFnType = ((
-  props: PropsWithChildren<ModalProps>
+export type DrawerFnType = ((
+  props: PropsWithChildren<DrawerProps>
 ) => JSX.Element) & {
-  Content: ModalContentFnType;
-  Footer: ModalFooterFnType;
+  Content: DrawerContentFnType;
+  Header: DrawerHeaderFnType;
 };
