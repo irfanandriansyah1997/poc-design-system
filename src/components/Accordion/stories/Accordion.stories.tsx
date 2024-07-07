@@ -11,6 +11,9 @@ const meta = {
     children: {
       table: { disable: true }
     },
+    styling: {
+      table: { disable: true }
+    },
     title: {
       table: { disable: true }
     }

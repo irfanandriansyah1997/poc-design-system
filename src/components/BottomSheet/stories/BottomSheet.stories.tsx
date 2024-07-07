@@ -216,21 +216,7 @@ export const NestedBottomSheet: Story = {
                 <BottomSheet
                   title="Title"
                   onClose={toggleShowModal2}
-                  height="auto"
-                  actionButtons={[
-                    {
-                      color: GRAY500,
-                      icon: 'delete',
-                      name: 'delete',
-                      onClick: noop
-                    },
-                    {
-                      color: GRAY500,
-                      icon: 'edit',
-                      name: 'edit',
-                      onClick: noop
-                    }
-                  ]}
+                  height="300px"
                 >
                   <BottomSheet.Content>
                     <Typography modifier="text_body_base">

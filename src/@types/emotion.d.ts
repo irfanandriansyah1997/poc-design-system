@@ -120,6 +120,7 @@ declare module '@emotion/react' {
     md: string;
     sm: string;
     xl: string;
+    xs: string;
   }
 
   /////////////////////////////////////////////////////////////////////////////
@@ -139,9 +140,20 @@ declare module '@emotion/react' {
       'button-sm-modifier'?: keyof TypographyModifier;
 
       /**
+       * Checkbox Component
+       */
+      'checkbox-label-modifier'?: keyof TypographyModifier;
+
+      /**
        * Chip Component
        */
       'chip-text-modifier'?: keyof TypographyModifier;
+
+      /**
+       * Form Component
+       */
+      'form-helper-modifier'?: keyof TypographyModifier;
+      'form-label-modifier'?: keyof TypographyModifier;
 
       /**
        * Label Component
@@ -150,10 +162,20 @@ declare module '@emotion/react' {
       'label-text-sm-modifier'?: keyof TypographyModifier;
 
       /**
+       * Radio Component
+       */
+      'radio-label-modifier'?: keyof TypographyModifier;
+
+      /**
        * Snackbar Component
        */
       'snackbar-cta-modifier'?: keyof TypographyModifier;
       'snackbar-text-modifier'?: keyof TypographyModifier;
+
+      /**
+       * Textfield Component
+       */
+      'textfield-text-modifier'?: keyof TypographyModifier;
     };
     elevation: Elevation;
     fontFamily: FontFamily;

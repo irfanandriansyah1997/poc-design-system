@@ -12,12 +12,14 @@ const Typography = <T extends Element>(
   const {
     children,
     color,
+    display = 'block',
     ellipsis,
     fontFamily = 'primary',
     fontWeight = 'regular',
     italic = false,
     margin,
     modifier = 'text_body_base',
+    style: styleProps = {},
     tag = 'p',
     textAlign = 'left',
     textDecoration = 'none',
@@ -26,7 +28,9 @@ const Typography = <T extends Element>(
 
   const style = useMemo(() => {
     return {
+      ...styleProps,
       color: color,
+      display,
       margin,
       overflow: ellipsis ? 'hidden' : 'initial',
       textAlign,
@@ -34,7 +38,7 @@ const Typography = <T extends Element>(
       textOverflow: ellipsis ? 'ellipsis' : 'initial',
       whiteSpace: ellipsis ? 'nowrap' : 'initial'
     };
-  }, [color, ellipsis, margin, textAlign, textDecoration]);
+  }, [color, display, ellipsis, margin, styleProps, textAlign, textDecoration]);
 
   return jsx(
     tag,

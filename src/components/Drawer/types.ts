@@ -8,9 +8,15 @@ import type { GenericCompoundComponentType } from '@/types/react';
 /////////////////////////////////////////////////////////////////////////////
 
 export interface DrawerHeaderProps {
+  /**
+   * Whether to hide the close button in the header.
+   */
   hideCloseButton?: boolean;
 }
 
+/**
+ * Type definition for the header section of the Drawer component.
+ */
 export type DrawerHeaderFnType = GenericCompoundComponentType<
   (props: PropsWithChildren<DrawerHeaderProps>) => JSX.Element,
   'drawer-header'
@@ -20,6 +26,9 @@ export type DrawerHeaderFnType = GenericCompoundComponentType<
 // Content Section
 /////////////////////////////////////////////////////////////////////////////
 
+/**
+ * Type definition for the content section of the Drawer component.
+ */
 export type DrawerContentFnType = GenericCompoundComponentType<
   (props: PropsWithChildren<unknown>) => JSX.Element,
   'drawer-content'
@@ -29,7 +38,13 @@ export type DrawerContentFnType = GenericCompoundComponentType<
 // Drawer Container Section
 /////////////////////////////////////////////////////////////////////////////
 
+/**
+ * Interface representing the properties for the Drawer component.
+ */
 export interface DrawerProps extends BaseModalProps {
+  /**
+   * The width of the Drawer component.
+   */
   width?: string;
 }
 
