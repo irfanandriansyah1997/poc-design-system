@@ -3,16 +3,16 @@ import { Children, cloneElement, useMemo } from 'react';
 
 import { useTheme } from '@emotion/react';
 
+import Flex from '@/components/Flex';
 import Overlay from '@/components/Overlay';
+import ModalActionButton from '@/components/shared/ModalActionButton';
 import Portal from '@/components/shared/Portal';
+import Typography from '@/components/Typography';
 import { useModal } from '@/hooks/useModal';
 
 import { isCompoundComponentValid } from '@/utils/dom';
 import type { Maybe } from '@/types/utils';
 
-import Flex from '../Flex';
-import ModalActionButton from '../shared/ModalActionButton';
-import Typography from '../Typography';
 import { styBottomSheet } from './style';
 import type { BottomSheetProps } from './types';
 

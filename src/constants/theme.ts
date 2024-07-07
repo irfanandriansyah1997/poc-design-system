@@ -227,7 +227,8 @@ export const RADIUS: Radius = {
   lg: '12px',
   md: '8px',
   sm: '4px',
-  xl: '16px'
+  xl: '16px',
+  xs: '2px'
 };
 
 /////////////////////////////////////////////////////////////////////////////
@@ -245,11 +246,16 @@ export const FITHUB_DEFAULT_DASHBOARD_THEME: FithubTheme = {
     'button-lg-modifier': 'text_heading_sm',
     'button-md-modifier': 'text_body_base',
     'button-sm-modifier': 'text_body_base',
+    'checkbox-label-modifier': 'text_body_base',
     'chip-text-modifier': 'text_body_base',
+    'form-helper-modifier': 'text_body_sm',
+    'form-label-modifier': 'text_body_base',
     'label-text-md-modifier': 'text_body_base',
     'label-text-sm-modifier': 'text_body_sm',
-    'snackbar-cta-modifier': 'text_body_sm',
-    'snackbar-text-modifier': 'text_body_base'
+    'radio-label-modifier': 'text_body_base',
+    'snackbar-cta-modifier': 'text_body_base',
+    'snackbar-text-modifier': 'text_body_base',
+    'textfield-text-modifier': 'text_body_base'
   },
   elevation: DEFAULT_ELEVATION,
   fontFamily: DEFAULT_FONT_FAMILY,
@@ -307,11 +313,16 @@ export const FITHUB_DEFAULT_LANDING_PAGE_THEME: FithubTheme = {
     'button-lg-modifier': 'text_body_base',
     'button-md-modifier': 'text_body_sm',
     'button-sm-modifier': 'text_body_sm',
+    'checkbox-label-modifier': 'text_body_sm',
     'chip-text-modifier': 'text_body_sm',
+    'form-helper-modifier': 'text_body_xs',
+    'form-label-modifier': 'text_body_sm',
     'label-text-md-modifier': 'text_body_sm',
     'label-text-sm-modifier': 'text_body_xs',
+    'radio-label-modifier': 'text_body_sm',
     'snackbar-cta-modifier': 'text_body_sm',
-    'snackbar-text-modifier': 'text_body_sm'
+    'snackbar-text-modifier': 'text_body_sm',
+    'textfield-text-modifier': 'text_body_sm'
   },
   elevation: DEFAULT_ELEVATION,
   fontFamily: DEFAULT_FONT_FAMILY,

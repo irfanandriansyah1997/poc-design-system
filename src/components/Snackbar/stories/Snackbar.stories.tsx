@@ -5,8 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button from '@/components/Button';
 import Flex from '@/components/Flex';
 import Snackbar from '@/components/Snackbar';
-
-import type { SnackbarImperativeRefType } from '../types';
+import type { SnackbarImperativeRefType } from '@/components/Snackbar/types';
 
 const meta = {
   component: Snackbar,

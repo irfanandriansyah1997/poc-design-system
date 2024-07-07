@@ -26,6 +26,7 @@ export type TypographyModifierType = keyof GetField<Theme, 'typography'>;
 interface BaseTypographyProps {
   className: string;
   color: string;
+  display: 'block' | 'inline';
   ellipsis: boolean;
   fontFamily: keyof GetField<Theme, 'fontFamily'>;
   fontWeight: keyof GetField<Theme, 'fontWeight'>;
