@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 export const styBadge = css`
-  display: inline-block;
+  display: inline-block !important;
   min-width: 8px;
   min-height: 8px;
   width: 8px;
@@ -13,7 +13,7 @@ export const styBadge = css`
     height: 16px;
     min-width: 16px;
     min-height: 16px;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
   }
