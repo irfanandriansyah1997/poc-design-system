@@ -1,6 +1,7 @@
 import type { InputHTMLAttributes } from 'react';
 
 import type { FithubIconType } from '@/types/icon';
+import type { BaseInputProps } from '@/types/input';
 import type { GenericHTMLProps } from '@/types/react';
 
 export type TextfieldSizeType = 'sm' | 'lg';
@@ -14,28 +15,27 @@ export type TextfieldAdditionalElementType<SuffixName extends string = ''> = {
   [Key in
     | `${SuffixName}Text`
     | `${SuffixName}Icon`
-    | `${SuffixName}Color`]?: Key extends `${SuffixName}Text`
+    | `${SuffixName}Color`
+    | `${SuffixName}IconSize`]?: Key extends `${SuffixName}Text`
     ? string
     : Key extends `${SuffixName}Icon`
       ? FithubIconType
       : Key extends `${SuffixName}Color`
         ? string
-        : never;
+        : Key extends `${SuffixName}IconSize`
+          ? number
+          : never;
 };
 
 export type TextfieldProps = TextfieldHTMLProps &
+  BaseInputProps &
   TextfieldAdditionalElementType<'preffix'> &
   TextfieldAdditionalElementType<'suffix'> &
   TextfieldAdditionalElementType<'addOnPreffix'> &
   TextfieldAdditionalElementType<'addOnSuffix'> & {
-    disabled?: boolean;
+    disabledDebounce?: boolean;
     enableClear?: boolean;
-    error?: boolean;
-    helper?: string;
-    label?: string;
     onChange?: (text: string) => void;
-    optional?: boolean;
-    required?: boolean;
     showCounter?: boolean;
     sizes: TextfieldSizeType;
     value?: string;

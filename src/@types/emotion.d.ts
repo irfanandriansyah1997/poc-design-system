@@ -133,6 +133,11 @@ declare module '@emotion/react' {
     color: Color;
     components: {
       /**
+       * Bottom Sheet Component
+       */
+      'bottom-sheet-title-modifier'?: keyof TypographyModifier;
+
+      /**
        * Button Component
        */
       'button-lg-modifier'?: keyof TypographyModifier;
@@ -162,9 +167,19 @@ declare module '@emotion/react' {
       'label-text-sm-modifier'?: keyof TypographyModifier;
 
       /**
+       * Modal Component
+       */
+      'modal-title-modifier'?: keyof TypographyModifier;
+
+      /**
        * Radio Component
        */
       'radio-label-modifier'?: keyof TypographyModifier;
+
+      /**
+       * Select Component
+       */
+      'select-text-modifier'?: keyof TypographyModifier;
 
       /**
        * Snackbar Component

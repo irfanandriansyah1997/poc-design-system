@@ -78,6 +78,7 @@ export const styTextfield = (props: Theme) => {
         height: 100%;
         padding: 0 12px;
         border: 1px solid ${color.GRAY100};
+        background-color: ${color.WHITE};
         z-index: 1;
         transition: all ${transition.duration} ${transition.timingFunction};
 

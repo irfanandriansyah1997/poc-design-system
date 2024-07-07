@@ -243,6 +243,7 @@ export const DEFAULT_TRANSITION: Transition = {
 export const FITHUB_DEFAULT_DASHBOARD_THEME: FithubTheme = {
   color: DEFAULT_COLOR,
   components: {
+    'bottom-sheet-title-modifier': 'text_heading_sm',
     'button-lg-modifier': 'text_heading_sm',
     'button-md-modifier': 'text_body_base',
     'button-sm-modifier': 'text_body_base',
@@ -252,7 +253,9 @@ export const FITHUB_DEFAULT_DASHBOARD_THEME: FithubTheme = {
     'form-label-modifier': 'text_body_base',
     'label-text-md-modifier': 'text_body_base',
     'label-text-sm-modifier': 'text_body_sm',
+    'modal-title-modifier': 'text_heading_sm',
     'radio-label-modifier': 'text_body_base',
+    'select-text-modifier': 'text_body_base',
     'snackbar-cta-modifier': 'text_body_base',
     'snackbar-text-modifier': 'text_body_base',
     'textfield-text-modifier': 'text_body_base'
@@ -310,6 +313,7 @@ export const FITHUB_DEFAULT_DASHBOARD_THEME: FithubTheme = {
 export const FITHUB_DEFAULT_LANDING_PAGE_THEME: FithubTheme = {
   color: DEFAULT_COLOR,
   components: {
+    'bottom-sheet-title-modifier': 'text_body_base',
     'button-lg-modifier': 'text_body_base',
     'button-md-modifier': 'text_body_sm',
     'button-sm-modifier': 'text_body_sm',
@@ -319,7 +323,9 @@ export const FITHUB_DEFAULT_LANDING_PAGE_THEME: FithubTheme = {
     'form-label-modifier': 'text_body_sm',
     'label-text-md-modifier': 'text_body_sm',
     'label-text-sm-modifier': 'text_body_xs',
+    'modal-title-modifier': 'text_body_base',
     'radio-label-modifier': 'text_body_sm',
+    'select-text-modifier': 'text_body_sm',
     'snackbar-cta-modifier': 'text_body_sm',
     'snackbar-text-modifier': 'text_body_sm',
     'textfield-text-modifier': 'text_body_sm'

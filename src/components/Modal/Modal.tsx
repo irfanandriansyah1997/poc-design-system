@@ -1,4 +1,9 @@
-import { Children, cloneElement, type PropsWithChildren } from 'react';
+import {
+  Children,
+  cloneElement,
+  type PropsWithChildren,
+  useImperativeHandle
+} from 'react';
 
 import { useTheme } from '@emotion/react';
 
@@ -18,18 +23,26 @@ const Modal = (props: PropsWithChildren<ModalProps>) => {
   const {
     actionButtons = [],
     children,
+    componentRef,
     hideCloseButton = false,
     maxWidth = 600,
     overlayProps,
     title
   } = props;
-  const { color } = useTheme();
+  const {
+    color,
+    components: { 'modal-title-modifier': titleModifier }
+  } = useTheme();
   const {
     actions: { onAnimationEnd, onClickOverlay, onClose },
     state: { show }
   } = useModal({
     onClose: props.onClose,
     onOverlayClick: overlayProps?.onClick
+  });
+
+  useImperativeHandle(componentRef, () => {
+    return { close: onClose };
   });
 
   return (
@@ -52,7 +65,7 @@ const Modal = (props: PropsWithChildren<ModalProps>) => {
               <Flex.Item>
                 <Typography
                   tag="h3"
-                  modifier="text_heading_sm"
+                  modifier={titleModifier}
                   fontWeight="strong"
                   color={color.GRAY900}
                 >
