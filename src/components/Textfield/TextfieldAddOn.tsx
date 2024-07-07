@@ -13,13 +13,14 @@ interface TextfieldAddOnProps {
   className?: string;
   color?: string;
   icon?: FithubIconType;
+  iconSize: number;
   position: 'suffix' | 'preffix';
   sizes: TextfieldSizeType;
   text?: string;
 }
 
 const TextfieldAddOn = (props: TextfieldAddOnProps) => {
-  const { className, color, icon, position, text } = props;
+  const { className, color, icon, iconSize, position, text } = props;
   const {
     color: colorPreset,
     components: { 'textfield-text-modifier': textVariant }
@@ -42,7 +43,11 @@ const TextfieldAddOn = (props: TextfieldAddOnProps) => {
   if (icon) {
     return (
       <section data-position={position} className={className}>
-        <Icon icon={icon} color={color || colorPreset.GRAY500} />
+        <Icon
+          icon={icon}
+          color={color || colorPreset.GRAY500}
+          size={iconSize}
+        />
       </section>
     );
   }

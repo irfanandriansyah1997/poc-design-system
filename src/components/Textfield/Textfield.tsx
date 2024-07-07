@@ -1,5 +1,12 @@
 import type { ChangeEventHandler, MouseEventHandler } from 'react';
-import { memo, useCallback, useEffect, useRef } from 'react';
+import {
+  forwardRef,
+  memo,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef
+} from 'react';
 
 import Icon from '@/components/Icon';
 import Input from '@/components/shared/Input';
@@ -11,15 +18,18 @@ import { styTextfield } from './style';
 import TextfieldAddOn from './TextfieldAddOn';
 import type { TextfieldProps } from './types';
 
-const Textfield = (props: TextfieldProps) => {
+const Textfield = forwardRef<HTMLInputElement, TextfieldProps>((props, ref) => {
   const {
     addOnPreffixColor,
     addOnPreffixIcon,
+    addOnPreffixIconSize = 16,
     addOnPreffixText,
     addOnSuffixColor,
     addOnSuffixIcon,
+    addOnSuffixIconSize = 16,
     addOnSuffixText,
     disabled = false,
+    disabledDebounce = false,
     enableClear,
     error = false,
     helper,
@@ -29,19 +39,29 @@ const Textfield = (props: TextfieldProps) => {
     optional,
     preffixColor,
     preffixIcon,
+    preffixIconSize = 16,
     preffixText,
     required = false,
     showCounter,
     sizes = 'lg',
     suffixColor,
     suffixIcon,
+    suffixIconSize = 16,
     suffixText,
     value: propsValue = '',
     ...res
   } = props;
-  const [value = '', setValue] = useDebounce<string>(propsValue, onChange);
+  const [value = '', setValue] = useDebounce<string>(
+    propsValue,
+    onChange,
+    disabledDebounce ? 0 : 500
+  );
   const containerRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useImperativeHandle(ref, () => {
+    return inputRef.current as HTMLInputElement;
+  });
 
   const handleOnChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     (e) => {
@@ -145,6 +165,7 @@ const Textfield = (props: TextfieldProps) => {
             position="preffix"
             sizes={sizes}
             icon={addOnPreffixIcon}
+            iconSize={addOnPreffixIconSize}
             text={addOnPreffixText}
             color={addOnPreffixColor}
           />
@@ -162,6 +183,7 @@ const Textfield = (props: TextfieldProps) => {
               position="preffix"
               sizes={sizes}
               icon={preffixIcon}
+              iconSize={preffixIconSize}
               text={preffixText}
               color={preffixColor}
             />
@@ -203,6 +225,7 @@ const Textfield = (props: TextfieldProps) => {
               position="suffix"
               sizes={sizes}
               icon={suffixIcon}
+              iconSize={suffixIconSize}
               text={suffixText}
               color={suffixColor}
             />
@@ -215,6 +238,7 @@ const Textfield = (props: TextfieldProps) => {
             position="suffix"
             sizes={sizes}
             icon={addOnSuffixIcon}
+            iconSize={addOnSuffixIconSize}
             text={addOnSuffixText}
             color={addOnSuffixColor}
           />
@@ -228,6 +252,6 @@ const Textfield = (props: TextfieldProps) => {
       )}
     </Input>
   );
-};
+});
 
 export default memo(Textfield);

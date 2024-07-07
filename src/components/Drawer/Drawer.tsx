@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { Children, cloneElement } from 'react';
+import { Children, cloneElement, useImperativeHandle } from 'react';
 
 import Overlay from '@/components/Overlay';
 import Portal from '@/components/shared/Portal';
@@ -11,13 +11,23 @@ import { styDrawer } from './style';
 import type { DrawerProps } from './types';
 
 const Drawer = (props: PropsWithChildren<DrawerProps>) => {
-  const { actionButtons = [], children, overlayProps, width = '80%' } = props;
+  const {
+    actionButtons = [],
+    children,
+    componentRef,
+    overlayProps,
+    width = '80%'
+  } = props;
   const {
     actions: { onAnimationEnd, onClickOverlay, onClose },
     state: { show }
   } = useModal({
     onClose: props.onClose,
     onOverlayClick: overlayProps?.onClick
+  });
+
+  useImperativeHandle(componentRef, () => {
+    return { close: onClose };
   });
 
   return (

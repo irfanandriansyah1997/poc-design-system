@@ -1,3 +1,5 @@
+import type { Ref } from 'react';
+
 import type { OverlayProps } from '@/components/Overlay/types';
 
 import type { FithubIconType } from './icon';
@@ -13,6 +15,11 @@ export interface BaseModalActionButtonType {
 
 export interface BaseModalProps {
   actionButtons?: BaseModalActionButtonType[];
+  componentRef?: Ref<BaseModalRefType>;
   onClose?: BaseModalOnCloseFnType;
   overlayProps?: Omit<OverlayProps, 'show'>;
+}
+
+export interface BaseModalRefType {
+  close: () => void;
 }

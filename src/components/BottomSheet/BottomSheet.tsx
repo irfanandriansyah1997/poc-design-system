@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { Children, cloneElement, useMemo } from 'react';
+import { Children, cloneElement, useImperativeHandle, useMemo } from 'react';
 
 import { useTheme } from '@emotion/react';
 
@@ -20,11 +20,17 @@ const BottomSheet = (props: PropsWithChildren<BottomSheetProps>) => {
   const {
     actionButtons = [],
     children,
+    componentRef,
     height = 'fullscreen',
     hideCloseButton = false,
     overlayProps,
     title
   } = props;
+  const {
+    color,
+    components: { 'bottom-sheet-title-modifier': titleModifier },
+    radius
+  } = useTheme();
   const {
     actions: { onAnimationEnd, onClickOverlay, onClose },
     state: { show }
@@ -32,7 +38,10 @@ const BottomSheet = (props: PropsWithChildren<BottomSheetProps>) => {
     onClose: props.onClose,
     onOverlayClick: overlayProps?.onClick
   });
-  const { color, radius } = useTheme();
+
+  useImperativeHandle(componentRef, () => {
+    return { close: onClose };
+  }, [onClose]);
 
   const style = useMemo(() => {
     let heightStyle: string | number;
@@ -89,7 +98,7 @@ const BottomSheet = (props: PropsWithChildren<BottomSheetProps>) => {
               <Flex.Item>
                 <Typography
                   tag="h3"
-                  modifier="text_heading_sm"
+                  modifier={titleModifier}
                   fontWeight="strong"
                   color={color.GRAY900}
                 >
