@@ -13,12 +13,6 @@ export const styTextfield = (props: Theme) => {
   } = props;
 
   return css`
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    outline: 0;
-
     .textfield {
       &__addon {
         display: flex;
@@ -39,13 +33,50 @@ export const styTextfield = (props: Theme) => {
         }
       }
 
+      &__container {
+        &[data-form-group-kind='default'] {
+          .textfield__item {
+            &:first-of-type,
+            &:last-of-type {
+              border-radius: 0;
+            }
+          }
+        }
+
+        &[data-form-group-kind='first-item'] {
+          .textfield__item {
+            &:first-of-type,
+            &:first-of-type:last-of-type {
+              border-radius: ${radius.md} 0 0 ${radius.md};
+            }
+
+            &:last-of-type {
+              border-radius: 0;
+            }
+          }
+        }
+
+        &[data-form-group-kind='last-item'] {
+          .textfield__item {
+            &:first-of-type {
+              border-radius: 0;
+            }
+
+            &:last-of-type,
+            &:first-of-type:last-of-type {
+              border-radius: 0 ${radius.md} ${radius.md} 0;
+            }
+          }
+        }
+      }
+
       &__item {
         margin-right: -1px;
 
-        &:first-child {
+        &:first-of-type {
           border-radius: ${radius.md} 0 0 ${radius.md};
 
-          &:last-child {
+          &:last-of-type {
             border-radius: ${radius.md};
           }
         }
@@ -79,8 +110,13 @@ export const styTextfield = (props: Theme) => {
         padding: 0 12px;
         border: 1px solid ${color.GRAY100};
         background-color: ${color.WHITE};
-        z-index: 1;
         transition: all ${transition.duration} ${transition.timingFunction};
+
+        &[data-focus='true'],
+        &[data-hover='true'],
+        &[data-error='true'] {
+          z-index: 10;
+        }
 
         &[data-hover='true'] {
           border-color: ${color.FITSKY500};

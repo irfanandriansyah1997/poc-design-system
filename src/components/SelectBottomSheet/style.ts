@@ -18,12 +18,30 @@ export const stySelectBottomSheet = (props: Theme) => {
         background-color: ${color.WHITE};
         transition: all ${transition.duration} ${transition.timingFunction};
 
+        &[data-form-group-kind='default'] {
+          border-radius: 0;
+        }
+
+        &[data-form-group-kind='first-item'] {
+          border-radius: ${radius.md} 0 0 ${radius.md};
+        }
+
+        &[data-form-group-kind='last-item'] {
+          border-radius: 0 ${radius.md} ${radius.md} 0;
+        }
+
         &[data-size='sm'] {
           height: 32px;
         }
 
         &[data-size='lg'] {
           height: 44px;
+        }
+
+        &[data-focus='true'],
+        &[data-hover='true'],
+        &[data-error='true'] {
+          z-index: 10;
         }
 
         &:hover {

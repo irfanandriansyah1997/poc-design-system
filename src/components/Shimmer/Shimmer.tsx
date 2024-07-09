@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 import { type Radius, useTheme } from '@emotion/react';
 
@@ -15,7 +15,7 @@ interface ShimmerProps extends GenericHTMLProps<HTMLAttributes<HTMLElement>> {
   width: string | number;
 }
 
-const Shimmer = (props: ShimmerProps) => {
+const _Shimmer = (props: ShimmerProps) => {
   const { display = 'block', height, radius, width, ...res } = props;
   const { radius: radiusPreset } = useTheme();
 
@@ -42,5 +42,9 @@ const Shimmer = (props: ShimmerProps) => {
 
   return <section css={styShimmer} {...res} style={cssStyle} />;
 };
+
+const Shimmer = memo(_Shimmer);
+
+Shimmer.displayName = 'Shimmer';
 
 export default Shimmer;

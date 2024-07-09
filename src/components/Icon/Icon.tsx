@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import { type HTMLAttributes, memo } from 'react';
 
 import { cx } from '@/utils/css';
 import type { FithubIconType } from '@/types/icon';
@@ -19,7 +19,7 @@ interface IconProps extends SpanHTMLProps {
   size?: number;
 }
 
-const Icon = (props: IconProps) => {
+const _Icon = (props: IconProps) => {
   const {
     'aria-label': ariaLabel = 'fithub icon',
     className,
@@ -43,5 +43,9 @@ const Icon = (props: IconProps) => {
     />
   );
 };
+
+const Icon = memo(_Icon);
+
+Icon.displayName = 'Icon';
 
 export default Icon;

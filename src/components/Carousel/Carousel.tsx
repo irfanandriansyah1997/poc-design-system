@@ -1,7 +1,6 @@
 import {
   Children,
   isValidElement,
-  memo,
   useCallback,
   useEffect,
   useRef
@@ -122,4 +121,4 @@ const Carousel = (props: CarouselProps) => {
   );
 };
 
-export default memo(Carousel);
+export default Carousel;

@@ -1,12 +1,12 @@
 import type { PropsWithChildren } from 'react';
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 import { jsx } from '@emotion/react';
 
 import { styTypography } from './style';
 import type { TypographyProps } from './types';
 
-const Typography = <T extends Element>(
+const _Typography = <T extends Element>(
   props: PropsWithChildren<TypographyProps<T>>
 ) => {
   const {
@@ -54,5 +54,9 @@ const Typography = <T extends Element>(
     children
   );
 };
+
+const Typography = memo(_Typography);
+
+Typography.displayName = 'Typography';
 
 export default Typography;

@@ -20,10 +20,11 @@ export type GridSizePresetsType =
   | 9
   | 10
   | 11
-  | 12;
+  | 12
+  | 'auto';
 
 export interface GridItemProps extends HTMLGridProps {
-  col: GridSizePresetsType;
+  col?: GridSizePresetsType;
   lg?: GridSizePresetsType;
   md?: GridSizePresetsType;
   sm?: GridSizePresetsType;

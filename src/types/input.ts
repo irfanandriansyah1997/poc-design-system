@@ -2,6 +2,8 @@
 // Input Container Types
 /////////////////////////////////////////////////////////////////////////////
 
+export type InputSizeType = 'sm' | 'lg';
+
 export interface BaseInputProps {
   disabled?: boolean;
   error?: boolean;
@@ -9,13 +11,12 @@ export interface BaseInputProps {
   label?: string;
   optional?: boolean;
   required?: boolean;
+  sizes?: InputSizeType;
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // Shared Types For Select Component
 /////////////////////////////////////////////////////////////////////////////
-
-export type SelectSizeType = 'sm' | 'lg';
 
 export interface SelectOptionType {
   disabled?: boolean;
@@ -38,7 +39,6 @@ export interface SelectProps extends BaseInputProps {
   options: SelectOptionType[];
   placeholder?: string;
   searchProps?: SelectSearchProps;
-  sizes: SelectSizeType;
   value?: (string | number) | Array<string | number>;
 }
 

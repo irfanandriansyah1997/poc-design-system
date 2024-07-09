@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 import { useTheme } from '@emotion/react';
 
@@ -56,7 +56,7 @@ interface ChipProps extends GenericHTMLProps<HTMLAttributes<HTMLElement>> {
   text: string;
 }
 
-const Chip = (props: ChipProps) => {
+const _Chip = (props: ChipProps) => {
   const {
     checked = false,
     disabled = false,
@@ -147,5 +147,9 @@ const Chip = (props: ChipProps) => {
     </section>
   );
 };
+
+const Chip = memo(_Chip);
+
+Chip.displayName = 'Chip';
 
 export default Chip;

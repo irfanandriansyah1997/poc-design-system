@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactEventHandler } from 'react';
+import { type CSSProperties, memo, type ReactEventHandler } from 'react';
 
 import type { Interpolation, Radius, Theme } from '@emotion/react';
 
@@ -51,7 +51,7 @@ interface ImageProps {
   width?: string | number;
 }
 
-const Image = (props: ImageProps) => {
+const _Image = (props: ImageProps) => {
   const {
     alt,
     height,
@@ -84,5 +84,9 @@ const Image = (props: ImageProps) => {
     </section>
   );
 };
+
+const Image = memo(_Image);
+
+Image.displayName = 'Image';
 
 export default Image;

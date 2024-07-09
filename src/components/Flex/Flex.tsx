@@ -97,4 +97,6 @@ FlexItem.COMPONENT_NAME = 'flex-item';
 
 Flex.Item = FlexItem;
 
+Flex.displayName = 'Flex';
+
 export default Flex;

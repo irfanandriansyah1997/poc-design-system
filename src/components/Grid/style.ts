@@ -3,13 +3,29 @@ import { css } from '@emotion/react';
 import type { GridSizePresetsType } from './types';
 
 const GRID_PRESETS: GridSizePresetsType[] = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  'auto'
 ];
 
 const GRID_VALUES = GRID_PRESETS.reduce<Record<GridSizePresetsType, string>>(
   (result, value) => {
-    const percentage = (100 / 12) * value;
-    result[value] = `${percentage}%`;
+    if (typeof value === 'number') {
+      const percentage = (100 / 12) * value;
+      result[value] = `${percentage}%`;
+    } else {
+      result[value] = 'auto';
+    }
 
     return result;
   },
@@ -25,7 +41,8 @@ const GRID_VALUES = GRID_PRESETS.reduce<Record<GridSizePresetsType, string>>(
     6: '0%',
     7: '0%',
     8: '0%',
-    9: '0%'
+    9: '0%',
+    auto: ''
   }
 );
 
@@ -44,6 +61,7 @@ export const styGrid = css`
   .grid-item {
     flex-basis: 0;
     flex-grow: 1;
+    flex-shrink: 0;
     max-width: 100%;
     min-height: 1px;
 

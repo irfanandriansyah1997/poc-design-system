@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import { type HTMLAttributes, memo } from 'react';
 
 import { useTheme } from '@emotion/react';
 
@@ -16,7 +16,7 @@ interface PageControlProps extends BaseHTMLProps {
   length: number;
 }
 
-const PageControl = (props: PageControlProps) => {
+const _PageControl = (props: PageControlProps) => {
   const { activeColor, activeIndex = 0, defaultColor, length = 0 } = props;
   const { color: colorPallete } = useTheme();
 
@@ -46,5 +46,9 @@ const PageControl = (props: PageControlProps) => {
     </section>
   );
 };
+
+const PageControl = memo(_PageControl);
+
+PageControl.displayName = 'PageControl';
 
 export default PageControl;
