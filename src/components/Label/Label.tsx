@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode } from 'react';
-import { isValidElement, useMemo } from 'react';
+import { isValidElement, memo, useMemo } from 'react';
 
 import { useTheme } from '@emotion/react';
 
@@ -72,7 +72,7 @@ interface LabelProps extends GenericHTMLProps<HTMLAttributes<HTMLElement>> {
   textColor: string;
 }
 
-const Label = (props: LabelProps) => {
+const _Label = (props: LabelProps) => {
   const {
     labelColor,
     preffixElement,
@@ -150,5 +150,9 @@ const Label = (props: LabelProps) => {
     </section>
   );
 };
+
+const Label = memo(_Label);
+
+Label.displayName = 'Label';
 
 export default Label;

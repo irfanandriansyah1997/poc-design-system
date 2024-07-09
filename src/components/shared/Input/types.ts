@@ -1,4 +1,4 @@
-import type { HTMLAttributes, PropsWithChildren } from 'react';
+import type { HTMLAttributes, PropsWithChildren, Ref } from 'react';
 
 import type {
   GenericCompoundComponentType,
@@ -26,8 +26,12 @@ export type InputLabelFnType = GenericCompoundComponentType<
 // Content Section
 /////////////////////////////////////////////////////////////////////////////
 
+interface InputContentProps extends BaseHTMLProps {
+  componentRef?: Ref<HTMLElement>;
+}
+
 export type InputContentFnType = GenericCompoundComponentType<
-  (props: PropsWithChildren<BaseHTMLProps>) => JSX.Element,
+  (props: PropsWithChildren<InputContentProps>) => JSX.Element,
   'input-content'
 >;
 

@@ -17,7 +17,7 @@ import Typography from '@/components/Typography';
 import { stySnackbar } from './style';
 import type { SnackbarProps, SnackbarRefType } from './types';
 
-const Snackbar = forwardRef<SnackbarRefType, SnackbarProps>((props, ref) => {
+const _Snackbar = forwardRef<SnackbarRefType, SnackbarProps>((props, ref) => {
   const {
     autoClose = 5000,
     ctaLabel,
@@ -160,4 +160,8 @@ const Snackbar = forwardRef<SnackbarRefType, SnackbarProps>((props, ref) => {
   );
 });
 
-export default memo(Snackbar);
+const Snackbar = memo(_Snackbar);
+
+Snackbar.displayName = 'Snackbar';
+
+export default Snackbar;

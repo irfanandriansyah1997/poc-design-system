@@ -1,4 +1,4 @@
-import { type InputHTMLAttributes, memo } from 'react';
+import { type InputHTMLAttributes } from 'react';
 
 import { useTheme } from '@emotion/react';
 
@@ -102,4 +102,4 @@ const Checkbox = (props: CheckboxProps) => {
   );
 };
 
-export default memo(Checkbox);
+export default Checkbox;

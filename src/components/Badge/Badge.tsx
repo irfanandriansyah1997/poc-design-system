@@ -47,6 +47,7 @@ const Badge = (props: BadgeProps) => {
       <Typography
         {...res}
         css={[cssStyle, styBadge]}
+        display="flex"
         data-render-with-text={true}
         modifier="text_body_xs"
         ellipsis

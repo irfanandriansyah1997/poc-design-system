@@ -1,4 +1,4 @@
-import { type InputHTMLAttributes, memo } from 'react';
+import type { InputHTMLAttributes } from 'react';
 
 import { useTheme } from '@emotion/react';
 
@@ -90,4 +90,4 @@ const Radio = (props: RadioProps) => {
   );
 };
 
-export default memo(Radio);
+export default Radio;

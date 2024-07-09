@@ -1,41 +1,38 @@
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useTheme } from '@emotion/react';
 
-import type { BottomSheetProps as BaseBottomSheetProps } from '@/components/BottomSheet/types';
+import type { FormGroupItemKind } from '@/components/FormGroup/types';
+import Icon from '@/components/Icon';
 import Input from '@/components/shared/Input';
+import Typography from '@/components/Typography';
 import useDebounce from '@/hooks/useDebounce';
 import useMount from '@/hooks/useMount';
 
-import type { SelectProps } from '@/types/input';
-import type { GetField } from '@/types/utils';
-
-import Icon from '../Icon';
-import Typography from '../Typography';
 import SelectSuggestion from './SelectSuggestion';
 import { stySelectBottomSheet } from './style';
+import type { SelectBottomSheetFnType, SelectBottomSheetProps } from './types';
 
-interface BottomSheetProps {
-  height?: GetField<BaseBottomSheetProps, 'height'>;
+interface PrivateSelectBottomSheetProps extends SelectBottomSheetProps {
+  formGroupKind?: FormGroupItemKind;
 }
 
-interface SelectBottomSheetProps extends SelectProps {
-  bottomSheetProps?: BottomSheetProps;
-}
-
-const SelectBottomSheet = (props: SelectBottomSheetProps) => {
+const _SelectBottomSheet: SelectBottomSheetFnType = (
+  props: PrivateSelectBottomSheetProps
+) => {
   const {
     bottomSheetProps = {},
     disabled = false,
     enableSearch,
     error = false,
+    formGroupKind,
     helper,
-    label = 'Select',
+    label,
     multiple = false,
     onChange,
     optional,
     options,
-    placeholder,
+    placeholder = 'Select',
     required,
     searchProps = {},
     sizes = 'lg',
@@ -45,6 +42,7 @@ const SelectBottomSheet = (props: SelectBottomSheetProps) => {
     color,
     components: { 'select-text-modifier': textModifier }
   } = useTheme();
+  const containerRef = useRef<HTMLElement>(null);
   const [open, toggleOpen] = useState(false);
   const [value, setValue] = useDebounce(valueProps, onChange);
 
@@ -79,6 +77,67 @@ const SelectBottomSheet = (props: SelectBottomSheetProps) => {
     return { text: placeholder, textColor: color.GRAY200 };
   }, [color.GRAY200, color.GRAY900, options, placeholder, value]);
 
+  useEffect(() => {
+    if (containerRef.current && !disabled) {
+      const handleOnFocus = () => {
+        if (containerRef.current) {
+          containerRef.current.setAttribute('data-focus', 'true');
+        }
+      };
+
+      const handleOnBlur = () => {
+        if (containerRef.current) {
+          containerRef.current.removeAttribute('data-focus');
+        }
+      };
+
+      const handleOnMouseOver = () => {
+        if (containerRef.current) {
+          containerRef.current.setAttribute('data-hover', 'true');
+        }
+      };
+
+      const handleOnMouseOut = () => {
+        if (containerRef.current) {
+          containerRef.current.removeAttribute('data-hover');
+        }
+      };
+
+      // INFO: Handle Focus State
+      containerRef.current.addEventListener('focus', handleOnFocus);
+      containerRef.current.addEventListener('blur', handleOnBlur);
+
+      // INFO: Handle Hover State
+      containerRef.current.addEventListener('mouseover', handleOnMouseOver);
+      containerRef.current.addEventListener('mouseout', handleOnMouseOut);
+
+      return () => {
+        if (containerRef.current) {
+          // INFO: Handle Focus State
+          containerRef.current.removeEventListener('focus', handleOnFocus);
+          containerRef.current.removeEventListener('blur', handleOnBlur);
+
+          // INFO: Handle Hover State
+          containerRef.current.removeEventListener(
+            'mouseover',
+            handleOnMouseOver
+          );
+          // INFO: disable eslint since containerRef is not mutating
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          containerRef.current.removeEventListener(
+            'mouseout',
+            handleOnMouseOut
+          );
+        }
+      };
+    }
+
+    if (containerRef.current && disabled) {
+      containerRef.current.removeAttribute('data-hover');
+      containerRef.current.removeAttribute('data-focus');
+    }
+  }, [disabled]);
+
   return (
     <>
       <Input css={stySelectBottomSheet} onClick={handleOnClickToggle}>
@@ -92,9 +151,11 @@ const SelectBottomSheet = (props: SelectBottomSheetProps) => {
 
         <Input.Content
           className="select__container"
+          componentRef={containerRef}
           data-size={sizes}
           data-error={error && !disabled}
           data-disabled={disabled}
+          data-form-group-kind={formGroupKind}
         >
           <Typography modifier={textModifier} color={textColor} ellipsis>
             {text}
@@ -119,7 +180,7 @@ const SelectBottomSheet = (props: SelectBottomSheetProps) => {
           height={bottomSheetProps.height}
           multiple={multiple}
           options={options}
-          title={label}
+          title={label || placeholder}
           emptyResultText={searchProps.emptyResultText}
           enableSearch={enableSearch}
           placeholder={placeholder}
@@ -132,4 +193,11 @@ const SelectBottomSheet = (props: SelectBottomSheetProps) => {
   );
 };
 
-export default memo(SelectBottomSheet);
+const SelectBottomSheet = memo(_SelectBottomSheet);
+
+SelectBottomSheet.displayName = 'SelectBottomSheet';
+
+// @ts-expect-error irfan@fithub.id
+SelectBottomSheet.COMPONENT_NAME = 'select-bottom-sheet';
+
+export default SelectBottomSheet;

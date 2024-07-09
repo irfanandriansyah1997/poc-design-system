@@ -4,19 +4,21 @@ import type { FithubIconType } from '@/types/icon';
 import type { BaseInputProps } from '@/types/input';
 import type { GenericHTMLProps } from '@/types/react';
 
-export type TextfieldSizeType = 'sm' | 'lg';
-
 type TextfieldHTMLProps = Omit<
   GenericHTMLProps<InputHTMLAttributes<HTMLInputElement>>,
   'onChange' | 'value' | 'disabled'
 >;
 
-export type TextfieldAdditionalElementType<SuffixName extends string = ''> = {
+export type TextfieldAdditionalElementType<
+  SuffixName extends string = '',
+  SuffixFnName extends string = ''
+> = {
   [Key in
     | `${SuffixName}Text`
     | `${SuffixName}Icon`
     | `${SuffixName}Color`
-    | `${SuffixName}IconSize`]?: Key extends `${SuffixName}Text`
+    | `${SuffixName}IconSize`
+    | `onClick${SuffixFnName}`]?: Key extends `${SuffixName}Text`
     ? string
     : Key extends `${SuffixName}Icon`
       ? FithubIconType
@@ -24,19 +26,20 @@ export type TextfieldAdditionalElementType<SuffixName extends string = ''> = {
         ? string
         : Key extends `${SuffixName}IconSize`
           ? number
-          : never;
+          : Key extends `onClick${SuffixFnName}`
+            ? () => void
+            : never;
 };
 
 export type TextfieldProps = TextfieldHTMLProps &
   BaseInputProps &
-  TextfieldAdditionalElementType<'preffix'> &
-  TextfieldAdditionalElementType<'suffix'> &
-  TextfieldAdditionalElementType<'addOnPreffix'> &
-  TextfieldAdditionalElementType<'addOnSuffix'> & {
+  TextfieldAdditionalElementType<'preffix', 'Preffix'> &
+  TextfieldAdditionalElementType<'suffix', 'Suffix'> &
+  TextfieldAdditionalElementType<'addOnPreffix', 'AddOnPreffix'> &
+  TextfieldAdditionalElementType<'addOnSuffix', 'AddOnSuffix'> & {
     disabledDebounce?: boolean;
     enableClear?: boolean;
     onChange?: (text: string) => void;
     showCounter?: boolean;
-    sizes: TextfieldSizeType;
     value?: string;
   };

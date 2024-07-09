@@ -5,22 +5,23 @@ import { useTheme } from '@emotion/react';
 import Icon from '@/components/Icon';
 import Typography from '@/components/Typography';
 
+import { noop } from '@/utils/noop';
 import type { FithubIconType } from '@/types/icon';
-
-import type { TextfieldSizeType } from './types';
+import type { InputSizeType } from '@/types/input';
 
 interface TextfieldAddOnProps {
   className?: string;
   color?: string;
   icon?: FithubIconType;
   iconSize: number;
+  onClick?: () => void;
   position: 'suffix' | 'preffix';
-  sizes: TextfieldSizeType;
+  sizes: InputSizeType;
   text?: string;
 }
 
 const TextfieldAddOn = (props: TextfieldAddOnProps) => {
-  const { className, color, icon, iconSize, position, text } = props;
+  const { className, color, icon, iconSize, onClick, position, text } = props;
   const {
     color: colorPreset,
     components: { 'textfield-text-modifier': textVariant }
@@ -28,7 +29,14 @@ const TextfieldAddOn = (props: TextfieldAddOnProps) => {
 
   if (text) {
     return (
-      <section data-position={position} className={className}>
+      <section
+        role="button"
+        tabIndex={0}
+        onKeyDown={noop}
+        onClick={onClick}
+        data-position={position}
+        className={className}
+      >
         <Typography
           modifier={textVariant}
           ellipsis
@@ -42,7 +50,14 @@ const TextfieldAddOn = (props: TextfieldAddOnProps) => {
 
   if (icon) {
     return (
-      <section data-position={position} className={className}>
+      <section
+        role="button"
+        tabIndex={0}
+        onKeyDown={noop}
+        onClick={onClick}
+        data-position={position}
+        className={className}
+      >
         <Icon
           icon={icon}
           color={color || colorPreset.GRAY500}

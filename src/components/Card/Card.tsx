@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import { type HTMLAttributes, memo } from 'react';
 
 import type { Elevation } from '@emotion/react';
 
@@ -21,7 +21,7 @@ interface CardProps extends HTMLCardProps {
   withBackground?: boolean;
 }
 
-const Card = (props: CardProps) => {
+const _Card = (props: CardProps) => {
   const {
     'aria-label': ariaLabel = 'card',
     margin,
@@ -47,5 +47,9 @@ const Card = (props: CardProps) => {
     />
   );
 };
+
+const Card = memo(_Card);
+
+Card.displayName = 'Card';
 
 export default Card;
