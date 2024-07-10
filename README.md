@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+## Getting Started
+This repository contains our design system component. The main reason that we created this repository was to unify our shared components into a single source and make development easier without having to build atomic components. For development, engineers must install the following apps:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- [Node JS (v20)](https://nodejs.org/en/download/package-manager)
+- PNPM
+- [Makefile](https://formulae.brew.sh/formula/make)
 
-Currently, two official plugins are available:
+After you have installed the library, below are the steps for running the apps on your local system:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Clone the Repository:**
+<br>Before cloning the repository, make sure your local machine has previously installed the github; if not, you may read [this confluence](https://fit-hub.atlassian.net/wiki/spaces/ENG/pages/94797874/Git+101#Prerequisites) to install the git.
 
-## Expanding the ESLint configuration
+  ```bash
+  git clone https://github.com/FIT-HUB-INDONESIA/fithub-design-system.git
+  cd fithub-design-system
+  ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Install Dependencies & Husky:**
+<br>After you clone the repository, the dependency is not immediately installed; you may install the mandatory dependencies and husky by running this command on your terminal.
 
-- Configure the top-level `parserOptions` property like this:
+  ```bash
+  make init-dev
+  ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- **Run The Storybook:**
+  <br> For running the storybook you can run this command; by default we will copy the development env and also running the apps using pnpm.
+
+  ```bash
+  pnpm run storybook
+  ```
+
+- **Open In Your Browser:**
+   <br>You can visit http://localhost:6006 to see the app in browser.
+
+## Other Commands
+### Running Check Code
+After development, we normally need to look over the code before committing the changes; to avoid committing buggy code, use this command before commit.
+```bash
+make check-code
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

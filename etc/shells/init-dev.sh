@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! type "pnpm" > /dev/null; then
-  npm install -g pnpm@^9.3
+  npm install -g pnpm@^9.5.0
 fi
 
 pnpm install
